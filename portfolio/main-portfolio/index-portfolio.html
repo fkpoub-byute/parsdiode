@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>نمونه کارها - PARSDIDE </title>
+  <link rel="stylesheet" href="portfolio.css" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body class="light-theme">
+  <!-- Header -->
+  <header class="header glassmorphism">
+    <div class="header-container">
+      <!-- Logo & Site Name -->
+      <div class="logo-section">
+        <img src="/img/logo.jpg" alt="لوگو" class="logo">
+        <h1 class="site-name">PARSDIDE</h1>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Navigation Menu -->
+      <nav class="nav-menu">
+        <ul class="main-menu">
+          <li><a href="/index.html"><i class="fas fa-bars"></i> صفحه اصلی</a></li>
+          <li><a href="#"><i class="fas fa-briefcase"></i> نمونه کارها</a></li>
+          <li class="dropdown">
+            <a href="#"><i class="fas fa-book"></i> مقالات <i class="fas fa-chevron-down arrow"></i></a>
+            <ul class="submenu">
+              <li><a href="#"><i class="fas fa-microchip"></i> الکترونیک</a></li>
+              <li><a href="#"><i class="fas fa-code"></i> برنامه‌نویسی</a></li>
+              <li><a href="#"><i class="fas fa-solar-panel"></i> برق خورشیدی</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#"><i class="fas fa-tools"></i> ابزارها <i class="fas fa-chevron-down arrow"></i></a>
+            <ul class="submenu">
+              <li><a href="#"><i class="fas fa-calculator"></i> کالکشن محاسبات</a></li>
+              <li><a href="#"><i class="fas fa-project-diagram"></i> شبیه‌سازی</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#"><i class="fas fa-ellipsis-h"></i> بیشتر <i class="fas fa-chevron-down arrow"></i></a>
+            <ul class="submenu">
+              <li><a href="#"><i class="fas fa-info-circle"></i> درباره ما</a></li>
+              <li><a href="#"><i class="fas fa-envelope"></i> تماس با ما</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Controls (Theme Toggle + Search) -->
+      <div class="header-controls">
+        <button id="theme-toggle" class="theme-btn">
+          <i class="fas fa-sun"></i>
+        </button>
+        <button id="search-btn" class="search-btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="portfolio-section">
+    <div class="portfolio-container">
+      <div class="portfolio-header">
+        <h2 class="portfolio-title">نمونه کارها</h2>
+        <p class="portfolio-subtitle">مجموعه‌ای از پروژه‌های متنوع و خلاقانه</p>
+      </div>
+
+      <div class="portfolio-filters">
+        <button class="portfolio-filter-btn active" data-filter="all">همه</button>
+        <button class="portfolio-filter-btn" data-filter="electronics">الکترونیک</button>
+        <button class="portfolio-filter-btn" data-filter="programming">برنامه‌نویسی</button>
+        <button class="portfolio-filter-btn" data-filter="solar">برق خورشیدی</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-card" data-category="electronics">
+          <img src="https://vigiato.net/wp-content/uploads/2025/08/Banner-4-1600x751.jpg" class="portfolio-card-img"
+            alt="پروژه الکترونیک">
+          <div class="portfolio-card-content">
+            <span class="portfolio-category-badge electronics">الکترونیک</span>
+            <h3 class="portfolio-card-title">طراحی مدار هوشمند</h3>
+            <p class="portfolio-card-description">طراحی و ساخت مدارهای الکترونیکی پیشرفته با استفاده از میکروکنترلرهای
+              مدرن...</p>
+            <a href="#" class="portfolio-view-btn">مشاهده جزئیات</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-category="programming">
+          <img src="https://vigiato.net/wp-content/uploads/2025/08/Banner-4-1600x751.jpg" class="portfolio-card-img"
+            alt="پروژه برنامه‌نویسی">
+          <div class="portfolio-card-content">
+            <span class="portfolio-category-badge programming">برنامه‌نویسی</span>
+            <h3 class="portfolio-card-title">اپلیکیشن موبایل</h3>
+            <p class="portfolio-card-description">توسعه اپلیکیشن موبایل چندپلتفرمی با استفاده از فریمورک‌های مدرن...</p>
+            <a href="#" class="portfolio-view-btn">مشاهده جزئیات</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-category="solar">
+          <img src="https://vigiato.net/wp-content/uploads/2025/08/Banner-4-1600x751.jpg" class="portfolio-card-img"
+            alt="پروژه برق خورشیدی">
+          <div class="portfolio-card-content">
+            <span class="portfolio-category-badge solar">برق خورشیدی</span>
+            <h3 class="portfolio-card-title">سیستم انرژی خورشیدی</h3>
+            <p class="portfolio-card-description">طراحی و نصب سیستم‌های انرژی خورشیدی برای ساختمان‌های مسکونی و تجاری...
+            </p>
+            <a href="#" class="portfolio-view-btn">مشاهده جزئیات</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <!-- فوتر بالا -->
+      <div class="footer-top">
+        <!-- لوگو و شبکه‌های اجتماعی -->
+        <div class="footer-col footer-about">
+          <div class="footer-logo">
+            <img style="border-radius: 50%; " src="/img/logo.jpg" alt="لوگو">
+            <p>راهکارهای نوین برای دنیای دیجیتال</p>
+          </div>
+          <div class="social-icons">
+            <a href="https://t.me/username" target="_blank" aria-label="تلگرام">
+              <i class="fab fa-telegram"></i>
+            </a>
+            <a href="mailto:info@example.com" aria-label="ایمیل">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://instagram.com/username" target="_blank" aria-label="اینستاگرام">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/989123456789" target="_blank" aria-label="واتساپ">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- لینک‌های مفید -->
+        <div class="footer-col">
+          <h4>لینک‌های مفید</h4>
+          <ul>
+            <li><a href="#">نمونه کارها</a></li>
+            <li><a href="#">مقالات</a></li>
+            <li><a href="#">ابزار ها</a></li>
+            <li><a href="#">درباره من</a></li>
+          </ul>
+        </div>
+
+        <!-- خدمات -->
+        <div class="footer-col">
+          <h4>مقالات</h4>
+          <ul>
+            <li><a href="#">برنامه نویسی</a></li>
+            <li><a href="#">الکترونیک</a></li>
+            <li><a href="#">برق خورشیدی</a></li>
+          </ul>
+        </div>
+
+        <!-- تماس با ما -->
+        <div class="footer-col">
+          <h4>ارتباط با من</h4>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>قزوین</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span style="direction:ltr;"> 0930 - 690 - 9530</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>info@example.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- فوتر پایین -->
+      <div class="footer-bottom">
+        <p class="copyright">ساخته شده با ❤️ توسط علی اشرفی</p>
+      </div>
+
+      <!-- دکمه اسکرول به بالا -->
+      <button class="scroll-top-btn" id="scrollTopBtn">↑</button>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script src="portfolio-js/script.js"></script>
+  <script src="/JS/script.js"></script>
+  <script src="/JS/hero.js"></script>
+  <script src="/JS/magale.js"></script>
+  <script src="/JS/footer.js"></script>
+  <script src="/JS/foote-theme.js"></script>
+</body>
+
+</html>
