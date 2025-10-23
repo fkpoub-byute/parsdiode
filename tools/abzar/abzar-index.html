@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parsdiode | محاسبات پنل خورشیدی</title>
+    <link rel="icon" href="/img/logo.jpg" type="image/jpg">
+    <link rel="apple-touch-icon" href="/img/logo.jpg">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- در قسمت <head> فایل index.html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/tools/abzar/abzar-style.css">
+</head>
+<body>
+ <!-- Header -->
+    <header class="header glassmorphism">
+        <div class="header-container">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <a href="#" class="logo-link">
+                    <img src="/img/logo.jpg" alt="لوگو Parsdiode" class="logo">
+                    <h1 class="site-name">Parsdiode</h1>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="منوی موبایل">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <ul class="main-menu">
+                    <li><a href="/index.html"><i class="fas fa-home"></i> خانه</a></li>
+                    <li class="dropdown">
+                        <a href="/magale/magale-index.html"><i class="fas fa-book"></i> مقالات </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/portfolio/portfolio-section/index-portfolio.html"><i class="fas fa-project-diagram"></i> نمونه کارها</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-tools"></i> ابزار <i class="fas fa-chevron-down arrow"></i></a>
+                        <ul class="submenu">
+                            <li><a href="/tools/abzar/abzar-index.html"><i class="fas fa-calculator"></i> ماشین حساب الکترونیک</a></li>
+                            <li><a href="/tools/coming.html"><i class="fas fa-chart-line"></i> تحلیل‌گر مدار</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/about us/about-us-index.html"><i class="fas fa-graduation-cap"></i> درباره من</a></li>
+                </ul>
+            </nav>
+
+            <!-- Header Controls -->
+            <div class="header-controls">
+                <button class="theme-btn" id="theme-toggle" aria-label="تغییر تم">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="search-btn" id="search-btn" aria-label="جستجو">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <div class="calculator-container">
+            <!-- Header -->
+            <header class="calculator-header">
+                <div class="header-icon">
+                    <i class="fas fa-solar-panel"></i>
+                </div>
+                <h1>ماشین حساب سیستم خورشیدی</h1>
+                <p class="header-subtitle">محاسبه دقیق نیازهای سیستم فتوولتائیک برای خانه و محل کار</p>
+            </header>
+
+            <div class="calculator-content">
+                <!-- Section 1: مصرف کننده‌ها -->
+                <section class="calculator-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h2>وسایل برقی مصرفی</h2>
+                    </div>
+                    <div class="appliances-grid" id="appliances-container">
+                        <!-- Appliances will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Section 2: موقعیت جغرافیایی -->
+                <section class="calculator-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h2>موقعیت نصب</h2>
+                    </div>
+                    <div class="location-selector">
+                        <div class="form-group">
+                            <label for="province-select">
+                                <i class="fas fa-map"></i>
+                                استان:
+                            </label>
+                            <select id="province-select" class="custom-select">
+                                <option value="">انتخاب استان</option>
+                                <option value="tehran">تهران</option>
+                                <option value="qazvin">قزوین</option>
+                                <option value="azarbaijan-east">آذربایجان شرقی</option>
+                                <option value="azarbaijan-west">آذربایجان غربی</option>
+                                <option value="khorasan-razavi">خراسان رضوی</option>
+                                <option value="isfahan">اصفهان</option>
+                                <option value="fars">فارس</option>
+                                <option value="kerman">کرمان</option>
+                                <option value="mazandaran">مازندران</option>
+                                <option value="gilan">گیلان</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="city-select">
+                                <i class="fas fa-city"></i>
+                                شهر:
+                            </label>
+                            <select id="city-select" class="custom-select" disabled>
+                                <option value="">ابتدا استان را انتخاب کنید</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="orientation-select">
+                                <i class="fas fa-compass"></i>
+                                جهت نصب پنل:
+                            </label>
+                            <select id="orientation-select" class="custom-select">
+                                <option value="south">جنوبی (بهترین)</option>
+                                <option value="south-east">جنوب شرقی</option>
+                                <option value="south-west">جنوب غربی</option>
+                                <option value="east">شرقی</option>
+                                <option value="west">غربی</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3: نوع سیستم -->
+                <section class="calculator-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h2>نوع سیستم</h2>
+                    </div>
+                    <div class="system-type-selector">
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="system-type" value="on-grid" checked>
+                                <span class="radio-checkmark"></span>
+                                <div class="radio-content">
+                                    <div class="radio-icon">
+                                        <i class="fas fa-network-wired"></i>
+                                    </div>
+                                    <div class="radio-text">
+                                        <h3>آن‌گرید (متصل به شبکه)</h3>
+                                        <p>اتصال به شبکه برق شهری - فروش اضافی برق</p>
+                                    </div>
+                                </div>
+                            </label>
+                            
+                            <label class="radio-option">
+                                <input type="radio" name="system-type" value="off-grid">
+                                <span class="radio-checkmark"></span>
+                                <div class="radio-content">
+                                    <div class="radio-icon">
+                                        <i class="fas fa-battery-full"></i>
+                                    </div>
+                                    <div class="radio-text">
+                                        <h3>آف‌گرید (مستقل)</h3>
+                                        <p>بدون اتصال به شبکه - نیاز به باتری</p>
+                                    </div>
+                                </div>
+                            </label>
+                            
+                            <label class="radio-option">
+                                <input type="radio" name="system-type" value="hybrid">
+                                <span class="radio-checkmark"></span>
+                                <div class="radio-content">
+                                    <div class="radio-icon">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </div>
+                                    <div class="radio-text">
+                                        <h3>هیبریدی</h3>
+                                        <p>ترکیبی از هر دو - قابلیت ذخیره‌سازی</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 4: محاسبه -->
+                <section class="calculator-section">
+                    <button class="calculate-btn" id="calculate-btn">
+                        <i class="fas fa-calculator"></i> محاسبه سیستم پیشنهادی
+                    </button>
+                </section>
+
+                <!-- Results Section -->
+                <section class="calculator-section results-section" id="results-section" style="display: none;">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h2>نتایج محاسبات</h2>
+                    </div>
+                    
+                    <!-- Panel Recommendation -->
+                    <div class="result-card">
+                        <div class="card-header">
+                            <div class="card-icon panel-icon">
+                                <i class="fas fa-solar-panel"></i>
+                            </div>
+                            <h3>پنل‌های پیشنهادی</h3>
+                        </div>
+                        <div class="result-content" id="panel-results">
+                            <!-- Panel results will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Inverter Recommendation -->
+                    <div class="result-card">
+                        <div class="card-header">
+                            <div class="card-icon inverter-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>اینورتر پیشنهادی</h3>
+                        </div>
+                        <div class="result-content" id="inverter-results">
+                            <!-- Inverter results will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Battery Recommendation -->
+                    <div class="result-card">
+                        <div class="card-header">
+                            <div class="card-icon battery-icon">
+                                <i class="fas fa-car-battery"></i>
+                            </div>
+                            <h3>باتری‌های پیشنهادی</h3>
+                        </div>
+                        <div class="result-content" id="battery-results">
+                            <!-- Battery results will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Summary -->
+                    <div class="result-card summary-card">
+                        <div class="card-header">
+                            <div class="card-icon summary">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <h3>خلاصه پیشنهاد</h3>
+                        </div>
+                        <div class="result-content" id="summary-results">
+                            <!-- Summary results will be loaded here -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+ <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="/img/logo.jpg" alt="لوگو Parsdiode">
+                        <p>
+                            وبسایت شخصی مهندس امیر آقامحمدی با تمرکز بر آموزش و پروژه‌های عملی در زمینه‌های الکترونیک،
+                            برنامه‌نویسی و سیستم‌های برق خورشیدی.
+                        </p>
+                        <div class="social-links">
+                    <a href="https://t.me/parsdiode" target="_blank" class="social-link">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://instagram.com/parsdiode" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:parsdiode@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:09013469353" class="social-link">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>دسترسی سریع</h4>
+                    <ul>
+                        <li><a href="/index.html"><i class="fas fa-chevron-left"></i> خانه</a></li>
+                        <li><a href="/magale/magale-index.html"><i class="fas fa-chevron-left"></i> مقالات</a></li>
+                        <li><a href="/portfolio/portfolio-section/index-portfolio.html"><i class="fas fa-chevron-left"></i> پروژه‌ها</a></li>
+                        <li><a href="/about us/about-us-index.html"><i class="fas fa-chevron-left"></i> درباره من</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>ابزار ها</h4>
+                    <ul>
+                        <li><a href="/tools/coming.html"><i class="fas fa-chevron-left"></i> ماشین حساب الکترونیک</a></li>
+                        <li><a href="/tools/coming.html"><i class="fas fa-chevron-left"></i> تحلیل گر مدار</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>راه های ارتباطی</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>parsdiode@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span style="direction: ltr;">0901 346 9353 - 0930 690 9530</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>ایران ، قزوین</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">
+                    تمامی حقوق برای وبسایت پارس دیود محفوظ است.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="برگشت به بالا">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Search Modal -->
+    <div class="modal" id="search-modal">
+        <div class="modal-content glassmorphism">
+            <span class="close">&times;</span>
+            <h3><i class="fas fa-search"></i> جستجو در مقالات</h3>
+            <input type="text" id="search-input" placeholder="عنوان مقاله، دسته‌بندی یا محتوا را جستجو کنید...">
+            <div id="search-results"></div>
+        </div>
+    </div>
+
+
+<script src="/JS/script.js"></script>
+<script src="/tools/abzar/abzar-script.js"></script>
+<script src="/tools/abzar/abzar.js"></script>
+</body>
+</html>

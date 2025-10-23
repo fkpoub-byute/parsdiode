@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parsdiode | نمونه کار ها </title>
+    <link rel="stylesheet" href="/portfolio/portfolio-section/stylesportfolio.css">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="/img/logo.jpg" type="image/jpg">
+
+</head>
+
+<body>
+     <!-- Header -->
+    <header class="header glassmorphism">
+        <div class="header-container">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <a href="#" class="logo-link">
+                    <img src="/img/logo.jpg" alt="لوگو Parsdiode" class="logo">
+                    <h1 class="site-name">Parsdiode</h1>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="منوی موبایل">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <ul class="main-menu">
+                    <li><a href="/index.html"><i class="fas fa-home"></i> خانه</a></li>
+                    <li class="dropdown">
+                        <a href="/magale/magale-index.html"><i class="fas fa-book"></i> مقالات </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/portfolio/portfolio-section/index-portfolio.html"><i class="fas fa-project-diagram"></i> نمونه کارها</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-tools"></i> ابزار <i class="fas fa-chevron-down arrow"></i></a>
+                        <ul class="submenu">
+                            <li><a href="/tools/abzar/abzar-index.html"><i class="fas fa-calculator"></i> ماشین حساب الکترونیک</a></li>
+                            <li><a href="/tools/coming.html"><i class="fas fa-chart-line"></i> تحلیل‌گر مدار</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/about us/about-us-index.html"><i class="fas fa-graduation-cap"></i> درباره من</a></li>
+                </ul>
+            </nav>
+
+            <!-- Header Controls -->
+            <div class="header-controls">
+                <button class="theme-btn" id="theme-toggle" aria-label="تغییر تم">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="search-btn" id="search-btn" aria-label="جستجو">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Portfolio Hero Section - Refined -->
+    <!-- Portfolio Hero Section - Fixed to match blog-header -->
+    <section class="portfolio-hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    پروژه‌های <span class="highlight">امیر آقامحمدی</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    مجموعه‌ای از پروژه‌ها و کارهای عملی در زمینه‌های الکترونیک، برنامه‌نویسی و سیستم‌های انرژی خورشیدی
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">پروژه تکمیل شده</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">حوزه تخصصی</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">رضایت مشتری</div>
+                    </div>
+                </div>
+
+                <button class="hero-cta" onclick="scrollToProjects()">
+                    مشاهده پروژه‌ها
+                    <i class="fas fa-arrow-down"></i>
+                </button>
+            </div>
+
+            <div class="hero-image">
+                <img src="/portfolio/portfolio-section/intro.png" alt="پروژه‌های مهندسی الکترونیک"
+                    style="width: 100%; border-radius: var(--border-radius); box-shadow: var(--light-shadow);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Filter -->
+    <section class="projects-filter-section">
+        <div class="container">
+            <div class="filter-controls">
+                <div class="filter-tags">
+                    <span class="filter-tag active" data-category="all">همه</span>
+                    <span class="filter-tag" data-category="الکترونیک">الکترونیک</span>
+                    <span class="filter-tag" data-category="برنامه‌نویسی">برنامه‌نویسی</span>
+                    <span class="filter-tag" data-category="برق خورشیدی">برق خورشیدی</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-section" id="projects-section">
+        <div class="container">
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects will be loaded here by JavaScript -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="projects-pagination" id="projects-pagination">
+                <!-- Pagination will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+ <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="/img/logo.jpg" alt="لوگو Parsdiode">
+                        <p>
+                            وبسایت شخصی مهندس امیر آقامحمدی با تمرکز بر آموزش و پروژه‌های عملی در زمینه‌های الکترونیک،
+                            برنامه‌نویسی و سیستم‌های برق خورشیدی.
+                        </p>
+                        <div class="social-links">
+                    <a href="https://t.me/parsdiode" target="_blank" class="social-link">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://instagram.com/parsdiode" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:parsdiode@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:09013469353" class="social-link">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>دسترسی سریع</h4>
+                    <ul>
+                        <li><a href="/index.html"><i class="fas fa-chevron-left"></i> خانه</a></li>
+                        <li><a href="/magale/magale-index.html"><i class="fas fa-chevron-left"></i> مقالات</a></li>
+                        <li><a href="/portfolio/portfolio-section/index-portfolio.html"><i class="fas fa-chevron-left"></i> پروژه‌ها</a></li>
+                        <li><a href="/about us/about-us-index.html"><i class="fas fa-chevron-left"></i> درباره من</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>ابزار ها</h4>
+                    <ul>
+                        <li><a href="/tools/coming.html"><i class="fas fa-chevron-left"></i> ماشین حساب الکترونیک</a></li>
+                        <li><a href="/tools/coming.html"><i class="fas fa-chevron-left"></i> تحلیل گر مدار</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>راه های ارتباطی</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>parsdiode@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span style="direction: ltr;">0901 346 9353 - 0930 690 9530</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>ایران ، قزوین</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">
+                    تمامی حقوق برای وبسایت پارس دیود محفوظ است.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="برگشت به بالا">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Search Modal -->
+    <div class="modal" id="search-modal">
+        <div class="modal-content glassmorphism">
+            <span class="close">&times;</span>
+            <h3><i class="fas fa-search"></i> جستجو در مقالات</h3>
+            <input type="text" id="search-input" placeholder="عنوان مقاله، دسته‌بندی یا محتوا را جستجو کنید...">
+            <div id="search-results"></div>
+        </div>
+    </div>
+
+
+    <script src="scriptsportfolio.js"></script>
+    <script src="/JS/script.js"></script>
+</body>
+
+</html>
