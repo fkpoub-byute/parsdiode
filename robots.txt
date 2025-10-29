@@ -1,0 +1,16 @@
+# robots.txt for https://parsdiode.ir/
+# Created: 2025-10-29
+# Author: Amir Aghamohammadi (Parsdiode.ir)
+# Purpose: SEO Technical Finalization - Allow logo & images access
+
+User-agent: *
+Allow: /
+Allow: /img/
+Disallow: /JS/
+
+# Optional performance: prevent access to unnecessary dynamic files (if exist)
+# Disallow: /temp/
+# Disallow: /drafts/
+
+# Sitemap location for Googlebot and other crawlers
+Sitemap: https://parsdiode.ir/sitemap.xml
