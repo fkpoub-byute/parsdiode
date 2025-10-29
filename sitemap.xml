@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- صفحه اصلی -->
+  <url>
+    <loc>https://parsdiode.ir/</loc>
+    <lastmod>2025-10-29</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ابزارها -->
+  <url>
+    <loc>https://parsdiode.ir/tools/coming.html</loc>
+    <lastmod>2025-10-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://parsdiode.ir/tools/abzar/abzar-index.html</loc>
+    <lastmod>2025-10-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- پورتفولیو -->
+  <url>
+    <loc>https://parsdiode.ir/portfolio/portfolio-section/index-portfolio.html</loc>
+    <lastmod>2025-10-29</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://parsdiode.ir/portfolio/portfolio/portfolio.html</loc>
+    <lastmod>2025-10-29</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- مقالات -->
+  <url>
+    <loc>https://parsdiode.ir/magale/magale-index.html</loc>
+    <lastmod>2025-10-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://parsdiode.ir/magale/magale-section/metavers.html</loc>
+    <lastmod>2025-10-29</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- درباره ما -->
+  <url>
+    <loc>https://parsdiode.ir/about%20us/about-us-index.html</loc>
+    <lastmod>2025-10-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
