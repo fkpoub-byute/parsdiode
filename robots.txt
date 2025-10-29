@@ -1,0 +1,13 @@
+# robots.txt for https://parsdiode.ir/
+# Created: 2025-10-29
+# Author: Amir Aghamohammadi (Parsdiode.ir)
+
+User-agent: *
+Allow: /
+
+# Prevent crawling of unnecessary system folders (if exist)
+Disallow: /JS/
+Disallow: /img/
+
+# Sitemap location
+Sitemap: https://parsdiode.ir/sitemap.xml
