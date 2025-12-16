@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parsdiode | مقالات</title>
+
+    <meta name="author" content="Parsdiode">
+    <link rel="icon" href="/img/logo.jpg" type="image/jpg">
+    <link rel="apple-touch-icon" href="/img/logo.jpg">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- در قسمت <head> فایل index.html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/magale/magale-style.css">
+</head>
+
+<body class="light-theme">
+     <header class="glass-header">
+        <div class="header-inner">
+
+            <!-- لوگو -->
+            <div class="brand-section">
+                <div class="logo-orbit">
+                    <img style="width: 50px; height: 50px; border-radius: 50%;" src="/img/logo.jpg" alt="">
+                </div>
+                <span class="brand-text">Parsdiode</span>
+            </div>
+
+            <!-- نویگیشن (در موبایل تبدیل به پوشش تمام صفحه میشود) -->
+            <nav class="glass-nav" id="main-nav">
+                <ul class="nav-items">
+                    <!-- دکمه بستن مخصوص موبایل -->
+                    <li class="mobile-only-header">
+                        <span class="brand-text">منو</span>
+                        <button id="close-menu-btn" class="glass-btn"><i class="fa-solid fa-times"></i></button>
+                    </li>
+
+                    <li><a href="/index.html" class="nav-link active">خانه</a></li>
+                    <li><a href="/portfolio/portfolio-section/index-portfolio.html" class="nav-link">نمونه کارها</a>
+                    </li>
+                    <li><a href="/magale/magale-index.html" class="nav-link">مقالات</a></li>
+
+                    <!-- آیتم دارای زیرمنو -->
+                    <li class="has-dropdown" id="tools-dropdown-trigger">
+                        <a href="/tools/coming.html" class="nav-link">
+                            ابزارها <i class="fa-solid fa-angle-down arrow-icon"></i>
+                        </a>
+                        <div class="glass-dropdown">
+                            <div class="dropdown-content">
+                                <a href="/tools/abzar/abzar-index.html" class="dropdown-item">
+                                    <div class="icon-box"><i class="fa-solid fa-calculator"></i></div>
+                                    <div class="text-box">
+                                        <span class="title">ماشین حساب پنل خورشیدی</span>
+                                        <span class="desc">محاسبه دقیق سیستم</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="/about us/about-us-index.html" class="nav-link">درباره من</a></li>
+                </ul>
+            </nav>
+
+            <!-- کنترل پنل -->
+            <div class="control-panel">
+                <button id="theme-toggle" class="glass-btn" title="تغییر اتمسفر">
+                    <i class="fa-regular fa-moon"></i>
+                </button>
+                <button id="search-trigger" class="glass-btn" title="کاوش">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <!-- دکمه همبرگری (فقط در موبایل/تبلت دیده میشود) -->
+                <button id="mobile-menu-toggle" class="glass-btn mobile-toggle-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- سرچ پاپ آپ (بدون تغییر) -->
+    <div id="search-modal" class="spotlight-overlay">
+        <div class="spotlight-card">
+            <div class="spotlight-header">
+                <i class="fa-solid fa-search search-icon"></i>
+                <input type="text" id="spotlight-input" placeholder="جستجو کنید..." autocomplete="off">
+                <button id="close-spotlight" class="close-icon"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="spotlight-divider"></div>
+            <div id="spotlight-results" class="spotlight-body">
+                <div class="empty-state">
+                    <i class="fa-regular fa-keyboard"></i>
+                    <p>تایپ کنید...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال جستجوی پیشرفته (Command Palette) 
+    <div id="search-modal" class="search-overlay">
+        <div class="search-box">
+            <header class="search-header">
+                <i class="fas fa-search search-icon-lead"></i>
+                <input type="text" id="search-input" placeholder="دستور یا کلمه کلیدی را تایپ کنید..."
+                    autocomplete="off">
+                <button id="close-search" class="close-icon"><i class="fas fa-times"></i></button>
+            </header>
+
+            <div class="search-body">
+                <div id="loading-indicator" class="loader" style="display:none;">
+                    <i class="fas fa-circle-notch fa-spin"></i> در حال اسکن سایت...
+                </div>
+                <div id="search-results" class="results-list">
+                     نتایج اینجا تزریق می‌شوند 
+                </div>
+            </div>
+
+            <footer class="search-footer">
+                <span><kbd>Enter</kbd> انتخاب</span>
+                <span><kbd>Esc</kbd> بستن</span>
+            </footer>
+        </div>
+    </div>
+-->
+<section id="blog" class="blog-section" dir="rtl">
+  <div class="container">
+
+    <!-- Header -->
+    <header class="blog-header">
+      <h2 class="blog-title">
+        <span class="blog-kicker">// ARTICLES</span>
+        مقالات تخصصی
+      </h2>
+      <p class="blog-subtitle">
+        تحلیل، آموزش و تجربه‌های واقعی در دنیای طراحی و برنامه‌نویسی
+      </p>
+    </header>
+
+    <!-- Articles Grid -->
+    <div id="articlesGrid" class="articles-grid"></div>
+
+    <!-- Load More -->
+    <div class="blog-footer">
+      <button id="loadMoreBtn" class="btn-glass">
+        <span class="btn-text">نمایش مقالات بیشتر</span>
+        <span class="btn-loader"></span>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+    <footer class="modern-footer">
+        <!-- افکت‌های نوری پس‌زمینه -->
+        <div class="footer-glow top-left"></div>
+        <div class="footer-glow bottom-right"></div>
+
+        <div class="footer-container">
+
+            <!-- ردیف اول: Call to Action بزرگ -->
+            <div class="bento-box cta-box">
+                <div class="cta-content">
+                    <h2 class="cta-heading">پروژه‌ای در ذهن دارید؟</h2>
+                    <p class="cta-text">بیایید با هم آن را بسازیم. از طراحی مدار تا توسعه وب.</p>
+                </div>
+                <div class="cta-action">
+                    <a href="mailto:parsdiode@gmail.com" class="shine-btn">
+                        <span>شروع همکاری</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                <!-- دکور پس‌زمینه -->
+                <div class="circuit-pattern"></div>
+            </div>
+
+            <!-- ردیف دوم: شبکه اصلی اطلاعات -->
+            <div class="footer-grid-layout">
+
+                <!-- ستون ۱: برند و بیوگرافی -->
+                <div class="bento-box brand-box">
+                    <div class="brand-header">
+                        <img src="/img/logo.jpg" alt="ParsDiode" class="brand-logo">
+                        <div class="brand-info">
+                            <h3>ParsDiode</h3>
+                            <span class="brand-badge">متخصص الکترونیک و برنامه نویسی</span>
+                        </div>
+                    </div>
+                    <p class="brand-bio">
+                        طراحی مرزهای تکنولوژی؛ جایی که پیچیدگی‌های مهندسی به تجربه‌ای چشم‌نواز و کارآمد تبدیل می‌شود.
+                    </p>
+                    <!-- نمایش آیکونیک تکنولوژی‌ها -->
+                    <div class="tech-strip">
+                        <!-- الکترونیک -->
+                        <i class="fas fa-microchip" title="Electronics"></i>
+
+                        <!-- آچار فرانسه (ابزار فنی) -->
+                        <i class="fas fa-wrench" title="Mechanics"></i>
+
+                        <!-- برنامه‌نویسی -->
+                        <i class="fas fa-laptop-code" title="Programming"></i>
+
+                        <!-- برق خورشیدی -->
+                        <i class="fas fa-solar-panel" title="Solar Power"></i>
+                    </div>
+
+                </div>
+
+                <!-- ستون ۲: لینک‌های دسترسی -->
+                <div class="bento-box links-box">
+                    <h4 class="box-title">بخش‌ها</h4>
+                    <ul class="footer-menu">
+                        <li><a href="/portfolio/portfolio-section/index-portfolio.html">نمونه کارها</a></li>
+                        <li><a href="/magale/magale-index.html">مقالات</a></li>
+                        <li><a href="/tools/abzar/abzar-index.html">ماشین حساب پنل خورشیدی</a></li>
+                        <li><a href="/about us/about-us-index.html">درباره من</a></li>
+                    </ul>
+                </div>
+
+                <!-- ستون ۳: شبکه‌های اجتماعی (کارت‌های مربعی) -->
+                <div class="bento-box social-box">
+                    <h4 class="box-title">ارتباط</h4>
+                    <div class="social-icons-grid">
+                        <a href="https://t.me/parsdiode" class="social-tile telegram" target="_blank">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="https://instagram.com/parsdiode" class="social-tile instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:parsdiode@gmail.com" class="social-tile email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:09013469353" class="social-tile phone">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نوار پایین فوتر: کپی‌رایت + سازنده -->
+            <div class="footer-bottom-bar">
+                <div class="copyright-text">
+                    تمامی حقوق مختص به وبسایت <strong>Parsdiode</strong> میباشد.
+                </div>
+
+                <div class="creator-wrapper">
+                    <a href="#" class="creator-link">قدرت گرفته از علی اشرفی</a>
+
+                    <!-- کارت هولوگرافیک (بدون تغییر ساختار داخلی) -->
+                    <div class="holo-card">
+                        <div class="holo-content">
+                            <div class="avatar-container">
+                                <!-- عکس به جای img با div و کلاس holo-avatar لود میشه -->
+                                <div class="holo-avatar" role="img" aria-label="Ali Ashrafi Profile"></div>
+                            </div>
+
+                            <div class="wave-container">
+                                <svg viewBox="0 0 1440 320" class="holo-wave-svg">
+                                    <path fill="none" stroke="var(--neon-glow)" stroke-width="4"
+                                        d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,165.3C672,160,768,96,864,90.7C960,85,1056,139,1152,154.7C1248,171,1344,149,1392,138.7L1440,128"
+                                        style="filter: drop-shadow(0 0 5px var(--neon-glow));"></path>
+                                </svg>
+                            </div>
+                            <div class="text-info">
+                                <span class="holo-role">Full-Stack Developer</span>
+                                <h3 class="holo-name">Ali Ashrafi</h3>
+                                <p class="holo-motto">BUILD THE FUTURE. CODE THE DREAM.</p>
+                            </div>
+                        </div>
+                        <div class="holo-pointer"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </footer>
+    <!-- دکمه بازگشت به بالا -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="برگشت به بالا">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script src="/JS/script.js"></script>
+    <script src="/magale/magale-script.js"></script>
+</body>
+
+</html>

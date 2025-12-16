@@ -1,0 +1,305 @@
+/* =========================================
+   CYBER PORTFOLIO: RTL & REFINED UI (FINAL)
+   ========================================= */
+
+/* تنظیمات پایه */
+html {
+  direction: rtl;
+}
+
+.cyber-portfolio-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 150px;
+    font-family: inherit;
+    direction: rtl;
+    text-align: right;
+}
+
+/* فونت‌های کمکی */
+.font-en { font-family: 'Segoe UI', sans-serif; letter-spacing: 0.5px; direction: ltr; display: inline-block; }
+.font-num { font-feature-settings: "ss01"; }
+
+/* --- 1. HERO SECTION --- */
+.cyber-hero {
+    position: relative;
+    padding: 160px 5% 60px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-backdrop-glow {
+    position: absolute;
+    top: -30%; left: 50%;
+    transform: translateX(-50%);
+    width: 70%; height: 500px;
+    background: radial-gradient(circle, rgba(var(--accent-color-rgb), 0.12) 0%, transparent 70%);
+    filter: blur(90px);
+    z-index: 0;
+    pointer-events: none;
+    animation: glowMove 10s infinite alternate;
+}
+@keyframes glowMove { 0% { opacity: 0.4; } 100% { opacity: 0.7; } }
+
+.hero-container {
+    width: 100%; max-width: 1300px; z-index: 1; text-align: center;
+}
+
+.title-block { margin-bottom: 50px; }
+
+.glitch-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.accent-text {
+    color: var(--accent-color);
+    position: relative;
+    display: inline-block;
+}
+.accent-text::after {
+    content: '';
+    position: absolute;
+    bottom: 5px; right: 0;
+    width: 100%; height: 8px;
+    background: rgba(var(--accent-color-rgb), 0.2);
+    z-index: -1;
+    transform: skewX(-20deg);
+}
+
+.subtitle-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* HUD (Status Bar) */
+.status-hud {
+    display: inline-flex;
+    align-items: center;
+    gap: 40px;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    backdrop-filter: blur(10px);
+}
+
+.hud-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.hud-label { font-size: 0.75rem; color: var(--text-secondary); opacity: 0.8; }
+.hud-value { font-size: 1rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
+
+.status-done { color: #10b981; text-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
+.pulse-dot { width: 6px; height: 6px; background: #10b981; border-radius: 50%; animation: pulse 2s infinite; }
+.hud-separator { width: 1px; height: 30px; background: rgba(255, 255, 255, 0.15); }
+
+/* --- 2. MAIN LAYOUT GRID (RTL Core) --- */
+.main-layout-grid {
+    display: grid;
+    /* در حالت RTL: ستون اول (2.2fr) سمت راست می افتد، ستون دوم (1fr) سمت چپ */
+    grid-template-columns: 2.2fr 1fr; 
+    gap: 60px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 5%;
+    align-items: start;
+    text-align: right;
+}
+
+/* --- 3. GALLERY STYLES --- */
+.cinema-display { margin-bottom: 70px; }
+
+.cyber-frame {
+    position: relative;
+    width: 100%;
+    height: 500px; /* ارتفاع ثابت برای جلوگیری از پرش */
+    clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+    background: #000;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.corner-accents::before, .corner-accents::after {
+    content: ''; position: absolute; width: 40px; height: 40px;
+    border: 2px solid var(--accent-color); z-index: 5; pointer-events: none;
+    transition: all 0.3s;
+}
+.corner-accents::before { top: 10px; right: 10px; border-bottom: none; border-left: none; }
+.corner-accents::after { bottom: 10px; left: 10px; border-top: none; border-right: none; }
+
+.master-img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.7s ease, opacity 0.3s ease; /* Opacity اضافه شد برای JS */
+}
+.cyber-frame:hover .master-img { transform: scale(1.05); }
+
+.img-overlay-tag {
+    position: absolute; top: 20px; left: 20px;
+    background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px);
+    color: #fff; padding: 6px 14px; border-radius: 4px;
+    font-size: 0.8rem; display: flex; align-items: center; gap: 8px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.glass-thumbs-container {
+    display: flex; justify-content: center; gap: 15px; padding: 10px;
+    background: rgba(255, 255, 255, 0.03); border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    width: fit-content; margin: 0 auto;
+}
+
+.glass-thumb {
+    width: 100px; height: 65px; border-radius: 10px;
+    overflow: hidden; position: relative; cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0.6; border: 1px solid transparent;
+}
+.glass-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.glass-thumb.active {
+    opacity: 1; transform: translateY(-10px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    border-color: var(--accent-color); z-index: 2;
+}
+.thumb-glow {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(var(--accent-color-rgb), 0.4), transparent);
+    opacity: 0; transition: 0.3s;
+}
+.glass-thumb.active .thumb-glow { opacity: 1; }
+
+/* --- 4. TEXT CONTENT --- */
+.section-headline {
+    font-size: 1.8rem; margin-bottom: 25px; color: var(--text-primary);
+    position: relative; padding-right: 20px;
+}
+.section-headline::before {
+    content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    width: 4px; height: 100%; background: var(--accent-color);
+    border-radius: 2px; box-shadow: 0 0 10px var(--accent-color);
+}
+
+.lead-paragraph {
+    font-size: 1.15rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 30px;
+}
+.narrative-text p {
+    font-size: 1rem; line-height: 2; color: var(--text-secondary); margin-bottom: 25px; text-align: justify;
+}
+
+.cyber-quote {
+    margin: 40px 0; padding: 30px 40px 30px 20px;
+    background: linear-gradient(270deg, rgba(var(--accent-color-rgb), 0.05) 0%, transparent 100%);
+    border-right: 3px solid var(--accent-color);
+    color: var(--text-primary); font-size: 1.2rem; font-style: italic; position: relative;
+}
+.cyber-quote::after {
+    content: '"'; position: absolute; top: -10px; right: 10px;
+    font-size: 4rem; color: var(--accent-color); opacity: 0.1; font-family: serif;
+}
+
+/* --- 5. VIDEO INTERFACE (Fixed) --- */
+.video-interface {
+    border-radius: 12px; background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px -10px rgba(0,0,0,0.5);
+    overflow: hidden; margin-top: 30px;
+    direction: ltr; /* پلیر LTR */
+}
+
+.interface-header {
+    background: #1a1a1a; padding: 12px 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rec-indicator {
+    color: #ef4444; font-weight: bold; font-size: 0.8rem;
+    display: flex; align-items: center; gap: 6px; letter-spacing: 1px;
+}
+.rec-dot { width: 8px; height: 8px; background: #ef4444; border-radius: 50%; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.interface-title { font-family: monospace; color: #666; font-size: 0.85rem; }
+.interface-controls { display: flex; gap: 15px; color: #888; font-size: 0.9rem; }
+
+.video-responsive-container {
+    position: relative; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0; overflow: hidden; background: #000;
+}
+.video-responsive-container iframe {
+    position: absolute; top: 0; left: 0;
+    width: 100% !important; height: 100% !important; border: 0; z-index: 1;
+}
+
+.scanlines {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
+    background-size: 100% 4px; pointer-events: none; z-index: 2; opacity: 0.3;
+}
+
+/* --- 6. SIDEBAR STYLES --- */
+.specs-sidebar { width: 100%; }
+.sticky-wrapper { position: sticky; top: 100px; }
+
+.unified-glass-sidebar {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 24px; padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.5);
+    display: flex; flex-direction: column; gap: 20px;
+}
+
+.module-header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 15px;
+}
+.module-header h3 { font-size: 1.1rem; font-weight: 800; color: var(--text-primary); margin: 0; }
+.icon-pulse { color: var(--accent-color); font-size: 1.2rem; }
+
+.spec-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.95rem; }
+.spec-row .key { color: var(--text-secondary); font-size: 0.9rem; }
+.spec-row .value { color: var(--text-primary); font-weight: 700; }
+
+.tools-cloud {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+    color: var(--text-primary); font-weight: 500; font-size: 0.95rem; line-height: 1.8; text-align: center;
+}
+.dot-sep { color: var(--accent-color); font-weight: bold; }
+
+.sidebar-divider {
+    height: 1px; background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+    width: 100%; margin: 5px 0;
+}
+
+.action-btn-cyber {
+    display: flex; justify-content: center; align-items: center; gap: 10px; width: 100%; padding: 14px;
+    background: var(--text-primary); color: #fff; border-radius: 14px;
+    text-decoration: none; font-weight: 700; transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.action-btn-cyber:hover {
+    transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    background: var(--accent-color);
+}
+/* چرخش آیکون فقط در صورتی که نیاز است (چون جهت body راست چین است، آیکون سمت راست متن می افتد که درست است) */
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .main-layout-grid { grid-template-columns: 1fr; gap: 40px; }
+    /* سایدبار برود زیر محتوا */
+    .specs-sidebar { order: 2; }
+    .status-hud { flex-direction: column; gap: 15px; padding: 20px; width: 100%; }
+    .hud-separator { width: 30px; height: 1px; }
+    .cyber-frame { height: 300px; }
+    .glass-thumbs-container { flex-wrap: nowrap; overflow-x: auto; justify-content: start; width: 100%; }
+}

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سیستم محاسبه سیستم خورشیدی | Parsdiode</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/tools/abzar/abzar-style.css">
+
+</head>
+
+<body>
+  <header class="glass-header">
+        <div class="header-inner">
+
+            <!-- لوگو -->
+            <div class="brand-section">
+                <div class="logo-orbit">
+                    <img style="width: 50px; height: 50px; border-radius: 50%;" src="/img/logo.jpg" alt="">
+                </div>
+                <span class="brand-text">Parsdiode</span>
+            </div>
+
+            <!-- نویگیشن (در موبایل تبدیل به پوشش تمام صفحه میشود) -->
+            <nav class="glass-nav" id="main-nav">
+                <ul class="nav-items">
+                    <!-- دکمه بستن مخصوص موبایل -->
+                    <li class="mobile-only-header">
+                        <span class="brand-text">منو</span>
+                        <button id="close-menu-btn" class="glass-btn"><i class="fa-solid fa-times"></i></button>
+                    </li>
+
+                    <li><a href="/index.html" class="nav-link active">خانه</a></li>
+                    <li><a href="/portfolio/portfolio-section/index-portfolio.html" class="nav-link">نمونه کارها</a>
+                    </li>
+                    <li><a href="/magale/magale-index.html" class="nav-link">مقالات</a></li>
+
+                    <!-- آیتم دارای زیرمنو -->
+                    <li class="has-dropdown" id="tools-dropdown-trigger">
+                        <a href="/tools/coming.html" class="nav-link">
+                            ابزارها <i class="fa-solid fa-angle-down arrow-icon"></i>
+                        </a>
+                        <div class="glass-dropdown">
+                            <div class="dropdown-content">
+                                <a href="/tools/abzar/abzar-index.html" class="dropdown-item">
+                                    <div class="icon-box"><i class="fa-solid fa-calculator"></i></div>
+                                    <div class="text-box">
+                                        <span class="title">ماشین حساب پنل خورشیدی</span>
+                                        <span class="desc">محاسبه دقیق سیستم</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="/about us/about-us-index.html" class="nav-link">درباره من</a></li>
+                </ul>
+            </nav>
+
+            <!-- کنترل پنل -->
+            <div class="control-panel">
+                <button id="theme-toggle" class="glass-btn" title="تغییر اتمسفر">
+                    <i class="fa-regular fa-moon"></i>
+                </button>
+                <button id="search-trigger" class="glass-btn" title="کاوش">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <!-- دکمه همبرگری (فقط در موبایل/تبلت دیده میشود) -->
+                <button id="mobile-menu-toggle" class="glass-btn mobile-toggle-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- سرچ پاپ آپ (بدون تغییر) -->
+    <div id="search-modal" class="spotlight-overlay">
+        <div class="spotlight-card">
+            <div class="spotlight-header">
+                <i class="fa-solid fa-search search-icon"></i>
+                <input type="text" id="spotlight-input" placeholder="جستجو کنید..." autocomplete="off">
+                <button id="close-spotlight" class="close-icon"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="spotlight-divider"></div>
+            <div id="spotlight-results" class="spotlight-body">
+                <div class="empty-state">
+                    <i class="fa-regular fa-keyboard"></i>
+                    <p>تایپ کنید...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال جستجوی پیشرفته (Command Palette) 
+    <div id="search-modal" class="search-overlay">
+        <div class="search-box">
+            <header class="search-header">
+                <i class="fas fa-search search-icon-lead"></i>
+                <input type="text" id="search-input" placeholder="دستور یا کلمه کلیدی را تایپ کنید..."
+                    autocomplete="off">
+                <button id="close-search" class="close-icon"><i class="fas fa-times"></i></button>
+            </header>
+
+            <div class="search-body">
+                <div id="loading-indicator" class="loader" style="display:none;">
+                    <i class="fas fa-circle-notch fa-spin"></i> در حال اسکن سایت...
+                </div>
+                <div id="search-results" class="results-list">
+                     نتایج اینجا تزریق می‌شوند 
+                </div>
+            </div>
+
+            <footer class="search-footer">
+                <span><kbd>Enter</kbd> انتخاب</span>
+                <span><kbd>Esc</kbd> بستن</span>
+            </footer>
+        </div>
+    </div>
+-->
+    <!-- Spotlight Search -->
+    <div class="spotlight-overlay" id="spotlightOverlay">
+        <div class="spotlight-card">
+            <div class="spotlight-header">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="spotlight-input" placeholder="جستجوی سریع... (برای بستن Esc را بزنید)">
+                <button class="close-icon" id="closeSpotlight">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="spotlight-divider"></div>
+            <div class="spotlight-body">
+                <div class="empty-state">
+                    <i class="fas fa-search"></i>
+                    <p>برای جستجو شروع به تایپ کنید...</p>
+                </div>
+            </div>
+            <div class="spotlight-footer">
+                <span><kbd>↑</kbd> <kbd>↓</kbd> برای پیمایش</span>
+                <span><kbd>Enter</kbd> برای انتخاب</span>
+                <span><kbd>Esc</kbd> برای خروج</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- بخش اصلی سیستم محاسبه -->
+    <main class="solar-calculator-container">
+        <!-- Progress Steps -->
+        <div class="calculation-progress">
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">انتخاب وسایل</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">موقعیت جغرافیایی</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">تنظیمات سیستم</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">نتایج محاسبات</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 1: انتخاب وسایل -->
+        <div class="calculation-step active" id="step1">
+            <div class="step-header">
+                <h2><i class="fas fa-plug"></i> انتخاب وسایل برقی</h2>
+                <p>وسایل مورد استفاده خود را انتخاب و تعداد آن‌ها را مشخص کنید.</p>
+            </div>
+
+            <div class="appliances-container">
+                <div class="appliances-grid" id="appliancesGrid">
+                    <!-- Appliances will be loaded by JavaScript -->
+                </div>
+            </div>
+
+            <div class="step-summary" id="step1Summary">
+                <div class="summary-content">
+                    <h4><i class="fas fa-list-check"></i> خلاصه انتخاب</h4>
+                    <div class="summary-items" id="selectedAppliancesList">
+                        <p class="empty-summary">هنوز وسیله‌ای انتخاب نشده است.</p>
+                    </div>
+                </div>
+                <div class="summary-stats">
+                    <div class="stat">
+                        <span class="stat-label">تعداد وسایل:</span>
+                        <span class="stat-value" id="totalAppliancesCount">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">توان مصرفی:</span>
+                        <span class="stat-value" id="totalPowerConsumption">0</span> <span class="stat-unit">وات</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-actions">
+                <button class="btn secondary-btn" id="resetStep1">
+                    <i class="fas fa-redo"></i> بازنشانی
+                </button>
+                <button class="btn primary-btn" id="nextToStep2">
+                    <i class="fas fa-arrow-left"></i> مرحله بعد
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: موقعیت جغرافیایی -->
+        <div class="calculation-step" id="step2">
+            <div class="step-header">
+                <h2><i class="fas fa-map-marked-alt"></i> موقعیت جغرافیایی</h2>
+                <p>موقعیت نصب سیستم خورشیدی را مشخص کنید.</p>
+            </div>
+
+            <div class="location-container">
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="provinceSelect"><i class="fas fa-map"></i> استان</label>
+                        <select id="provinceSelect" class="glass-select">
+                            <option value="">انتخاب استان...</option>
+                            <!-- Provinces will be loaded by JavaScript -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="citySelect"><i class="fas fa-city"></i> شهر</label>
+                        <select id="citySelect" class="glass-select" disabled>
+                            <option value="">ابتدا استان را انتخاب کنید</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="location-info-card">
+                    <div class="info-header">
+                        <i class="fas fa-info-circle"></i>
+                        <h4>اطلاعات موقعیت</h4>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-item">
+                            <span class="info-label">میزان تابش خورشید:</span>
+                            <span class="info-value" id="sunRadiationValue">--</span>
+                            <span class="info-unit">کیلووات‌ساعت بر متر مربع</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">ساعت آفتابی روزانه:</span>
+                            <span class="info-value" id="sunHoursValue">--</span>
+                            <span class="info-unit">ساعت</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">دمای متوسط:</span>
+                            <span class="info-value" id="avgTempValue">--</span>
+                            <span class="info-unit">درجه سانتی‌گراد</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">ارتفاع از سطح دریا:</span>
+                            <span class="info-value" id="altitudeValue">--</span>
+                            <span class="info-unit">متر</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-actions">
+                <button class="btn secondary-btn" id="backToStep1">
+                    <i class="fas fa-arrow-right"></i> مرحله قبل
+                </button>
+                <button class="btn primary-btn" id="nextToStep3" disabled>
+                    <i class="fas fa-arrow-left"></i> مرحله بعد
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 3: تنظیمات سیستم -->
+        <div class="calculation-step" id="step3">
+            <div class="step-header">
+                <h2><i class="fas fa-cogs"></i> تنظیمات سیستم خورشیدی</h2>
+                <p>مشخصات فنی سیستم خورشیدی را تعیین کنید.</p>
+            </div>
+
+            <div class="system-settings-container">
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <div class="setting-header">
+                            <i class="fas fa-compass"></i>
+                            <h4>جهت نصب پنل‌ها</h4>
+                        </div>
+                        <div class="setting-options">
+                            <div class="option-item selected" data-direction="south">
+                                <div class="option-icon">
+                                    <i class="fas fa-sun"></i>
+                                </div>
+                                <div class="option-content">
+                                    <div class="option-title">جنوبی</div>
+                                    <div class="option-desc">بهینه‌ترین جهت برای ایران</div>
+                                </div>
+                                <div class="option-check"><i class="fas fa-check"></i></div>
+                            </div>
+                            <div class="option-item" data-direction="east-west">
+                                <div class="option-icon">
+                                    <i class="fas fa-arrows-alt-h"></i>
+                                </div>
+                                <div class="option-content">
+                                    <div class="option-title">شرقی-غربی</div>
+                                    <div class="option-desc">توزیع مناسب انرژی در طول روز</div>
+                                </div>
+                                <div class="option-check"><i class="fas fa-check"></i></div>
+                            </div>
+                            <div class="option-item" data-direction="flat">
+                                <div class="option-icon">
+                                    <i class="fas fa-square"></i>
+                                </div>
+                                <div class="option-content">
+                                    <div class="option-title">تخت</div>
+                                    <div class="option-desc">سقف‌های تخت یا محدودیت جهت</div>
+                                </div>
+                                <div class="option-check"><i class="fas fa-check"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <div class="setting-header">
+                            <i class="fas fa-bolt"></i>
+                            <h4>نوع اینورتر</h4>
+                        </div>
+                        <div class="setting-options">
+                            <div class="option-item selected" data-inverter="on-grid">
+                                <div class="option-icon">
+                                    <i class="fas fa-plug"></i>
+                                </div>
+                                <div class="option-content">
+                                    <div class="option-title">انگرید (متصل به شبکه)</div>
+                                    <div class="option-desc">فروش برق به شبکه، بدون باتری</div>
+                                </div>
+                                <div class="option-check"><i class="fas fa-check"></i></div>
+                            </div>
+                            <div class="option-item" data-inverter="off-grid">
+                                <div class="option-icon">
+                                    <i class="fas fa-power-off"></i>
+                                </div>
+                                <div class="option-content">
+                                    <div class="option-title">آفگرید (منفصل از شبکه)</div>
+                                    <div class="option-desc">سیستم مستقل با باتری</div>
+                                </div>
+                                <div class="option-check"><i class="fas fa-check"></i></div>
+                            </div>
+                            <div class="option-item" data-inverter="hybrid">
+                                <div class="option-icon">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </div>
+                                <div class="option-content">
+                                    <div class="option-title">هیبریدی</div>
+                                    <div class="option-desc">ترکیبی از هر دو سیستم</div>
+                                </div>
+                                <div class="option-check"><i class="fas fa-check"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <div class="setting-header">
+                            <i class="fas fa-solar-panel"></i>
+                            <h4>نوع پنل خورشیدی</h4>
+                        </div>
+                        <div class="setting-options">
+                            <div class="option-item selected" data-panel="mono">
+                                <div class="option-icon">
+                                    <i class="fas fa-th-large"></i>
+                                </div>
+                                <div class="option-content">
+                                    <div class="option-title">مونوکریستال</div>
+                                    <div class="option-desc">راندمان بالا (20-22%)</div>
+                                </div>
+                                <div class="option-check"><i class="fas fa-check"></i></div>
+                            </div>
+                            <div class="option-item" data-panel="poly">
+                                <div class="option-icon">
+                                    <i class="fas fa-th"></i>
+                                </div>
+                                <div class="option-content">
+                                    <div class="option-title">پلی کریستال</div>
+                                    <div class="option-desc">مقرون به صرفه (16-18%)</div>
+                                </div>
+                                <div class="option-check"><i class="fas fa-check"></i></div>
+                            </div>
+                            <div class="option-item" data-panel="thin">
+                                <div class="option-icon">
+                                    <i class="fas fa-square"></i>
+                                </div>
+                                <div class="option-content">
+                                    <div class="option-title">فیلم نازک</div>
+                                    <div class="option-desc">سبک و انعطاف‌پذیر (10-13%)</div>
+                                </div>
+                                <div class="option-check"><i class="fas fa-check"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <div class="setting-header">
+                            <i class="fas fa-car-battery"></i>
+                            <h4>نوع باتری</h4>
+                        </div>
+                        <div class="battery-options">
+                            <div class="battery-option selected" data-battery="lead-acid">
+                                <div class="battery-icon">
+                                    <i class="fas fa-car-battery"></i>
+                                </div>
+                                <div class="battery-info">
+                                    <div class="battery-name">سربی اسیدی معمولی</div>
+                                    <div class="battery-specs">
+                                        <span><i class="fas fa-bolt"></i> 12V 100Ah</span>
+                                        <span><i class="fas fa-recycle"></i> 500 چرخه</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="battery-option" data-battery="ups">
+                                <div class="battery-icon">
+                                    <i class="fas fa-car-battery"></i>
+                                </div>
+                                <div class="battery-info">
+                                    <div class="battery-name">یو پی اس (Deep Cycle)</div>
+                                    <div class="battery-specs">
+                                        <span><i class="fas fa-bolt"></i> 12V 150Ah</span>
+                                        <span><i class="fas fa-recycle"></i> 800 چرخه</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="battery-option" data-battery="lithium">
+                                <div class="battery-icon">
+                                    <i class="fas fa-car-battery"></i>
+                                </div>
+                                <div class="battery-info">
+                                    <div class="battery-name">لیتیوم فسفات آهن</div>
+                                    <div class="battery-specs">
+                                        <span><i class="fas fa-bolt"></i> 12.8V 100Ah</span>
+                                        <span><i class="fas fa-recycle"></i> 3000 چرخه</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-actions">
+                <button class="btn secondary-btn" id="backToStep2">
+                    <i class="fas fa-arrow-right"></i> مرحله قبل
+                </button>
+                <button class="btn primary-btn" id="calculateResults">
+                    <i class="fas fa-calculator"></i> محاسبه نتایج
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 4: نتایج محاسبات -->
+        <div class="calculation-step" id="step4">
+            <div class="step-header">
+                <h2><i class="fas fa-chart-line"></i> نتایج محاسبات سیستم خورشیدی</h2>
+                <p>مشخصات فنی پیشنهادی سیستم بر اساس اطلاعات ورودی شما</p>
+            </div>
+
+            <div class="results-container">
+                <div class="results-summary">
+                    <div class="summary-card primary">
+                        <div class="summary-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="summary-content">
+                            <div class="summary-label">توان مصرفی کل</div>
+                            <div class="summary-value" id="resultTotalPower">0</div>
+                            <div class="summary-unit">وات</div>
+                        </div>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <div class="summary-content">
+                            <div class="summary-label">تعداد پنل‌ها</div>
+                            <div class="summary-value" id="resultPanelCount">0</div>
+                            <div class="summary-unit">عدد</div>
+                        </div>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="summary-content">
+                            <div class="summary-label">اینورتر مورد نیاز</div>
+                            <div class="summary-value" id="resultInverterPower">0</div>
+                            <div class="summary-unit">وات</div>
+                        </div>
+                    </div>
+
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-car-battery"></i>
+                        </div>
+                        <div class="summary-content">
+                            <div class="summary-label">ظرفیت باتری</div>
+                            <div class="summary-value" id="resultBatteryCapacity">0</div>
+                            <div class="summary-unit">آمپر-ساعت</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="technical-details">
+                    <div class="detail-section">
+                        <h3><i class="fas fa-info-circle"></i> جزئیات فنی سیستم</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <div class="detail-label">نوع پنل پیشنهادی:</div>
+                                <div class="detail-value" id="detailPanelType">پنل مونوکریستال 400 وات</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">ولتاژ سیستم:</div>
+                                <div class="detail-value" id="detailSystemVoltage">48 ولت</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">نوع اینورتر:</div>
+                                <div class="detail-value" id="detailInverterType">اینورتر سینوسی خالص</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">شارژ کنترلر:</div>
+                                <div class="detail-value" id="detailChargeController">MPPT 60A</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">ولتاژ باتری:</div>
+                                <div class="detail-value" id="detailBatteryVoltage">12V</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">جریان باتری:</div>
+                                <div class="detail-value" id="detailBatteryCurrent">200A</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3><i class="fas fa-battery-three-quarters"></i> مشخصات باتری</h3>
+                        <div class="battery-details">
+                            <div class="battery-spec" id="batteryTypeDetail">باتری سربی اسیدی معمولی</div>
+                            <div class="battery-spec" id="batteryCountDetail">4 عدد باتری</div>
+                            <div class="battery-spec" id="batteryConfigDetail">2 سری × 2 موازی</div>
+                            <div class="battery-spec" id="batteryLifetimeDetail">طول عمر: 3-5 سال</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendations">
+                    <h3><i class="fas fa-lightbulb"></i> توصیه‌های فنی</h3>
+                    <div class="recommendation-list" id="recommendationsList">
+                        <div class="recommendation-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>برای افزایش راندمان سیستم، پنل‌ها را با زاویه 30 درجه نصب کنید.</span>
+                        </div>
+                        <div class="recommendation-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>باتری‌ها را در محیطی خنک و خشک نگهداری کنید.</span>
+                        </div>
+                        <div class="recommendation-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>هر 6 ماه یکبار سیستم را توسط متخصص بررسی کنید.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="export-actions">
+                    <button class="btn secondary-btn">
+                        <i class="fas fa-print"></i> چاپ گزارش
+                    </button>
+                    <button class="btn secondary-btn">
+                        <i class="fas fa-file-pdf"></i> دانلود PDF
+                    </button>
+                    <button class="btn primary-btn" id="restartCalculation">
+                        <i class="fas fa-redo"></i> محاسبه جدید
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+ <footer class="modern-footer">
+        <!-- افکت‌های نوری پس‌زمینه -->
+        <div class="footer-glow top-left"></div>
+        <div class="footer-glow bottom-right"></div>
+
+        <div class="footer-container">
+
+            <!-- ردیف اول: Call to Action بزرگ -->
+            <div class="bento-box cta-box">
+                <div class="cta-content">
+                    <h2 class="cta-heading">پروژه‌ای در ذهن دارید؟</h2>
+                    <p class="cta-text">بیایید با هم آن را بسازیم. از طراحی مدار تا توسعه وب.</p>
+                </div>
+                <div class="cta-action">
+                    <a href="mailto:parsdiode@gmail.com" class="shine-btn">
+                        <span>شروع همکاری</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                <!-- دکور پس‌زمینه -->
+                <div class="circuit-pattern"></div>
+            </div>
+
+            <!-- ردیف دوم: شبکه اصلی اطلاعات -->
+            <div class="footer-grid-layout">
+
+                <!-- ستون ۱: برند و بیوگرافی -->
+                <div class="bento-box brand-box">
+                    <div class="brand-header">
+                        <img src="/img/logo.jpg" alt="ParsDiode" class="brand-logo">
+                        <div class="brand-info">
+                            <h3>ParsDiode</h3>
+                            <span class="brand-badge">متخصص الکترونیک و برنامه نویسی</span>
+                        </div>
+                    </div>
+                    <p class="brand-bio">
+                        طراحی مرزهای تکنولوژی؛ جایی که پیچیدگی‌های مهندسی به تجربه‌ای چشم‌نواز و کارآمد تبدیل می‌شود.
+                    </p>
+                    <!-- نمایش آیکونیک تکنولوژی‌ها -->
+                    <div class="tech-strip">
+                        <!-- الکترونیک -->
+                        <i class="fas fa-microchip" title="Electronics"></i>
+
+                        <!-- آچار فرانسه (ابزار فنی) -->
+                        <i class="fas fa-wrench" title="Mechanics"></i>
+
+                        <!-- برنامه‌نویسی -->
+                        <i class="fas fa-laptop-code" title="Programming"></i>
+
+                        <!-- برق خورشیدی -->
+                        <i class="fas fa-solar-panel" title="Solar Power"></i>
+                    </div>
+
+                </div>
+
+                <!-- ستون ۲: لینک‌های دسترسی -->
+                <div class="bento-box links-box">
+                    <h4 class="box-title">بخش‌ها</h4>
+                    <ul class="footer-menu">
+                        <li><a href="/portfolio/portfolio-section/index-portfolio.html">نمونه کارها</a></li>
+                        <li><a href="/magale/magale-index.html">مقالات</a></li>
+                        <li><a href="/tools/abzar/abzar-index.html">ماشین حساب پنل خورشیدی</a></li>
+                        <li><a href="/about us/about-us-index.html">درباره من</a></li>
+                    </ul>
+                </div>
+
+                <!-- ستون ۳: شبکه‌های اجتماعی (کارت‌های مربعی) -->
+                <div class="bento-box social-box">
+                    <h4 class="box-title">ارتباط</h4>
+                    <div class="social-icons-grid">
+                        <a href="https://t.me/parsdiode" class="social-tile telegram" target="_blank">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="https://instagram.com/parsdiode" class="social-tile instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:parsdiode@gmail.com" class="social-tile email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:09013469353" class="social-tile phone">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نوار پایین فوتر: کپی‌رایت + سازنده -->
+            <div class="footer-bottom-bar">
+                <div class="copyright-text">
+                    تمامی حقوق مختص به وبسایت <strong>Parsdiode</strong> میباشد.
+                </div>
+
+                <div class="creator-wrapper">
+                    <a href="#" class="creator-link">قدرت گرفته از علی اشرفی</a>
+
+                    <!-- کارت هولوگرافیک (بدون تغییر ساختار داخلی) -->
+                    <div class="holo-card">
+                        <div class="holo-content">
+                            <div class="avatar-container">
+                                <!-- عکس به جای img با div و کلاس holo-avatar لود میشه -->
+                                <div class="holo-avatar" role="img" aria-label="Ali Ashrafi Profile"></div>
+                            </div>
+
+                            <div class="wave-container">
+                                <svg viewBox="0 0 1440 320" class="holo-wave-svg">
+                                    <path fill="none" stroke="var(--neon-glow)" stroke-width="4"
+                                        d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,165.3C672,160,768,96,864,90.7C960,85,1056,139,1152,154.7C1248,171,1344,149,1392,138.7L1440,128"
+                                        style="filter: drop-shadow(0 0 5px var(--neon-glow));"></path>
+                                </svg>
+                            </div>
+                            <div class="text-info">
+                                <span class="holo-role">Full-Stack Developer</span>
+                                <h3 class="holo-name">Ali Ashrafi</h3>
+                                <p class="holo-motto">BUILD THE FUTURE. CODE THE DREAM.</p>
+                            </div>
+                        </div>
+                        <div class="holo-pointer"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </footer>
+    <!-- دکمه بازگشت به بالا -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="برگشت به بالا">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script-cac.js"></script>
+    <script src="/JS/script.js"></script>
+</body>
+
+</html>

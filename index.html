@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="light">
+
+<head>
+    <!-- ================================
+       1. Core Setup & Security
+    ================================= -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- امنیت: کنترل نحوه ارسال اطلاعات به سایت‌های خارجی -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- جلوگیری از تبدیل شماره‌ها به لینک تماس در iOS -->
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- ================================
+       2. Advanced SEO: Title & Meta
+    ================================= -->
+    <!-- تایتل: فرمول (برند شخصی | تخصص اصلی | برند تجاری) -->
+    <title>امیر آقامحمدی | مهندس طراح الکترونیک، IoT و برنامه‌نویس – Parsdiode</title>
+
+    <!-- توضیحات: ترکیب مهارت‌ها + دعوت به اقدام + اعتبار -->
+    <meta name="description"
+        content="وب‌سایت رسمی امیر آقامحمدی (Parsdiode)؛ مرجع تخصصی طراحی مدار، اینترنت اشیاء (IoT)، سیستم‌های خورشیدی و برنامه‌نویسی وب. مشاهده پروژه‌ها، آموزش‌ها و سفارش طراحی PCB و توسعه نرم‌افزار.">
+
+    <!-- کلمات کلیدی (هنوز برای برخی موتورها کاربرد دارد) -->
+    <meta name="keywords"
+        content="امیر آقامحمدی, Amir Aghamohammadi, مهندسی الکترونیک, طراحی PCB, برنامه نویسی میکروکنترلر, اینترنت اشیاء IoT, انرژی خورشیدی, هوش مصنوعی, توسعه وب, Parsdiode, پارس دیود, آموزش Altium Designer, برنامه نویسی React">
+
+    <meta name="author" content="Amir Aghamohammadi">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="language" content="Fa">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- ================================
+       3. Local SEO (Geo-Tagging)
+    ================================= -->
+    <!-- کمک به سئوی محلی برای پروژه‌های حضوری یا منطقه‌ای -->
+    <meta name="geo.region" content="IR-26"> <!-- کد استان قزوین -->
+    <meta name="geo.placename" content="Qazvin">
+    <meta name="geo.position" content="36.2795;50.0049"> <!-- مختصات تقریبی قزوین -->
+    <meta name="ICBM" content="36.2795, 50.0049">
+
+    <!-- ================================
+       4. Canonical & Links
+    ================================= -->
+    <link rel="canonical" href="https://parsdiode.ir/">
+    <!-- لینک جایگزین اگر نسخه انگلیسی داشتی اضافه کن، فعلا فارسی -->
+    <link rel="alternate" hreflang="fa" href="https://parsdiode.ir/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://parsdiode.ir/sitemap.xml">
+
+    <!-- ================================
+       5. Social Media (Open Graph & Twitter)
+    ================================= -->
+    <!-- Open Graph / Facebook / LinkedIn / Telegram -->
+    <meta property="og:type" content="profile"> <!-- تغییر به profile چون سایت شخصی است -->
+    <meta property="og:url" content="https://parsdiode.ir/">
+    <meta property="og:title" content="امیر آقامحمدی | متخصص الکترونیک و برنامه‌نویسی">
+    <meta property="og:description"
+        content="توسعه‌دهنده سیستم‌های هوشمند، طراح بردهای الکترونیکی پیشرفته و سامانه‌های خورشیدی. به دنیای الکترونیک و کدنویسی من خوش آمدید.">
+    <meta property="og:image" content="https://parsdiode.ir/img/og-cover.jpg">
+    <!-- پیشنهاد: یک عکس افقی سایز 1200x630 بساز -->
+    <meta property="og:image:alt" content="Amir Aghamohammadi - Electronics Engineer">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:site_name" content="Parsdiode">
+    <meta property="profile:first_name" content="Amir">
+    <meta property="profile:last_name" content="Aghamohammadi">
+    <meta property="profile:username" content="parsdiode">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@parsdiode"> <!-- اگر توییتر داری -->
+    <meta name="twitter:creator" content="@parsdiode">
+    <meta name="twitter:title" content="امیر آقامحمدی | مهندس الکترونیک و برنامه‌نویس">
+    <meta name="twitter:description"
+        content="پورتفولیوی تخصصی امیر آقامحمدی در زمینه IoT، الکترونیک و برنامه‌نویسی وب.">
+    <meta name="twitter:image" content="https://parsdiode.ir/img/og-cover.jpg">
+
+    <!-- ================================
+       6. Icons & PWA Setup
+    ================================= -->
+    <link rel="icon" href="/img/logo.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo.png">
+    <meta name="theme-color" content="#4361ee" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)"> <!-- تم رنگی داینامیک -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ================================
+       7. Performance & Preload (Core Web Vitals)
+    ================================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    <!-- لود فونت وزیر با display:swap برای جلوگیری از پرش متن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+
+    <!-- استایل‌های اصلی -->
+    <link rel="preload" href="/style.css" as="style">
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Font Awesome (اگر فقط آیکون‌های خاصی استفاده می‌کنی، بهتره SVG لوکال بذاری، اما این CDN اوکیه) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+
+    <!-- ================================
+       8. Masterful Schema.org (JSON-LD)
+    ================================= -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://parsdiode.ir/#website",
+                "url": "https://parsdiode.ir/",
+                "name": "Parsdiode",
+                "alternateName": ["پارس دیود", "سایت شخصی امیر آقامحمدی"],
+                "inLanguage": "fa-IR",
+                "publisher": { "@id": "https://parsdiode.ir/#person" }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://parsdiode.ir/#person",
+                "name": "امیر آقامحمدی",
+                "alternateName": ["Amir Aghamohammadi", "Eng. Aghamohammadi"],
+                "image": {
+                    "@type": "ImageObject",
+                    "url": "https://parsdiode.ir/img/logo.png",
+                    "caption": "Amir Aghamohammadi Profile"
+                },
+                "url": "https://parsdiode.ir",
+                "jobTitle": ["Electronics Engineer", "Full Stack Developer", "Solar System Designer"],
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Parsdiode",
+                    "url": "https://parsdiode.ir"
+                },
+                "alumniOf": {
+                    "@type": "CollegeOrUniversity",
+                    "name": "نام دانشگاه خود را وارد کنید", 
+                    "sameAs": "لینک سایت دانشگاه"
+                },
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Qazvin",
+                    "addressCountry": "IR"
+                },
+                "email": "parsdiode@gmail.com",
+                "telephone": "+98-901-346-9353",
+                "sameAs": [
+                    "https://instagram.com/parsdiode",
+                    "https://t.me/parsdiode",
+                    "https://github.com/یوزرنیم-گیت-هاب-شما",
+                    "https://linkedin.com/in/لینک-لینکدین-شما"
+                ],
+                "knowsAbout": [
+                    { "@type": "Thing", "name": "Electronics Circuit Design" },
+                    { "@type": "Thing", "name": "PCB Layout (Altium Designer)" },
+                    { "@type": "Thing", "name": "Internet of Things (IoT)" },
+                    { "@type": "Thing", "name": "Solar Energy Systems" },
+                    { "@type": "Thing", "name": "Web Development (React, Vue.js)" },
+                    { "@type": "Thing", "name": "Python Programming" }
+                ]
+            }
+        ]
+    }
+    </script>
+
+    <!-- ================================
+       9. Google Analytics 4
+    ================================= -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-224E7Z3SLW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-224E7Z3SLW', {
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure'
+        });
+    </script>
+</head>
+
+<body>
+    <header class="glass-header">
+        <div class="header-inner">
+
+            <!-- لوگو -->
+            <div class="brand-section">
+                <div class="logo-orbit">
+                    <img style="width: 50px; height: 50px; border-radius: 50%;" src="/img/logo.jpg" alt="">
+                </div>
+                <span class="brand-text">Parsdiode</span>
+            </div>
+
+            <!-- نویگیشن (در موبایل تبدیل به پوشش تمام صفحه میشود) -->
+            <nav class="glass-nav" id="main-nav">
+                <ul class="nav-items">
+                    <!-- دکمه بستن مخصوص موبایل -->
+                    <li class="mobile-only-header">
+                        <span class="brand-text">منو</span>
+                        <button id="close-menu-btn" class="glass-btn"><i class="fa-solid fa-times"></i></button>
+                    </li>
+
+                    <li><a href="/index.html" class="nav-link active">خانه</a></li>
+                    <li><a href="/portfolio/portfolio-section/index-portfolio.html" class="nav-link">نمونه کارها</a>
+                    </li>
+                    <li><a href="/magale/magale-index.html" class="nav-link">مقالات</a></li>
+
+                    <!-- آیتم دارای زیرمنو -->
+                    <li class="has-dropdown" id="tools-dropdown-trigger">
+                        <a href="/tools/coming.html" class="nav-link">
+                            ابزارها <i class="fa-solid fa-angle-down arrow-icon"></i>
+                        </a>
+                        <div class="glass-dropdown">
+                            <div class="dropdown-content">
+                                <a href="/tools/abzar/abzar-index.html" class="dropdown-item">
+                                    <div class="icon-box"><i class="fa-solid fa-calculator"></i></div>
+                                    <div class="text-box">
+                                        <span class="title">ماشین حساب پنل خورشیدی</span>
+                                        <span class="desc">محاسبه دقیق سیستم</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="/about us/about-us-index.html" class="nav-link">درباره من</a></li>
+                </ul>
+            </nav>
+
+            <!-- کنترل پنل -->
+            <div class="control-panel">
+                <button id="theme-toggle" class="glass-btn" title="تغییر اتمسفر">
+                    <i class="fa-regular fa-moon"></i>
+                </button>
+                <button id="search-trigger" class="glass-btn" title="کاوش">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <!-- دکمه همبرگری (فقط در موبایل/تبلت دیده میشود) -->
+                <button id="mobile-menu-toggle" class="glass-btn mobile-toggle-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- سرچ پاپ آپ (بدون تغییر) -->
+    <div id="search-modal" class="spotlight-overlay">
+        <div class="spotlight-card">
+            <div class="spotlight-header">
+                <i class="fa-solid fa-search search-icon"></i>
+                <input type="text" id="spotlight-input" placeholder="جستجو کنید..." autocomplete="off">
+                <button id="close-spotlight" class="close-icon"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="spotlight-divider"></div>
+            <div id="spotlight-results" class="spotlight-body">
+                <div class="empty-state">
+                    <i class="fa-regular fa-keyboard"></i>
+                    <p>تایپ کنید...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال جستجوی پیشرفته (Command Palette) 
+    <div id="search-modal" class="search-overlay">
+        <div class="search-box">
+            <header class="search-header">
+                <i class="fas fa-search search-icon-lead"></i>
+                <input type="text" id="search-input" placeholder="دستور یا کلمه کلیدی را تایپ کنید..."
+                    autocomplete="off">
+                <button id="close-search" class="close-icon"><i class="fas fa-times"></i></button>
+            </header>
+
+            <div class="search-body">
+                <div id="loading-indicator" class="loader" style="display:none;">
+                    <i class="fas fa-circle-notch fa-spin"></i> در حال اسکن سایت...
+                </div>
+                <div id="search-results" class="results-list">
+                     نتایج اینجا تزریق می‌شوند 
+                </div>
+            </div>
+
+            <footer class="search-footer">
+                <span><kbd>Enter</kbd> انتخاب</span>
+                <span><kbd>Esc</kbd> بستن</span>
+            </footer>
+        </div>
+    </div>
+-->
+    <!-- =================================
+        Hero Section - Immersive 3D
+    ================================= -->
+    <section class="hero-section">
+        <div class="hero-bg">
+            <div class="parallax-layer"></div>
+        </div>
+
+        <div class="hero-container">
+            <!-- بخش متنی (چپ) -->
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    سلام،من امیر آقامحمدی هستم
+                </h1>
+                <p class="hero-subtitle">
+                    من مهندس امیر آقامحمدی هستم و در این وبسایت تجربیات، پروژه‌ها و آموزش‌های خود را در زمینه‌های
+                    الکترونیک، برنامه‌نویسی و برق خورشیدی با شما به اشتراک می‌گذارم. </p>
+
+                <div class="hero-actions">
+                    <a href="#">
+                        <button class="btn primary-btn">
+                            <span class="btn-content">مشاهده رزومه <i class="fas fa-arrow-left"></i></span>
+                        </button>
+                    </a>
+                    <a href="tel:09013469353">
+                        <button class="btn secondary-btn">
+                            <span class="btn-content">تماس با من</span>
+                        </button>
+                    </a>
+                </div>
+
+                <!-- شبکه‌های اجتماعی (طرح جدید: داک افقی) -->
+                <div class="social-dock">
+                    <!-- Telegram -->
+                    <a href="https://t.me/parsdiode" target="_blank" class="social-item" title="تلگرام">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/parsdiode" target="_blank" class="social-item" title="اینستاگرام">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:parsdiode@gmail.com" class="social-item" title="ارسال ایمیل">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
+                    <!-- Phone -->
+                    <a href="tel:09013469353" class="social-item" title="تماس تلفنی">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+                </div>
+
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="100">0</span>
+                        <span class="stat-label">پروژه</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="120">0</span>
+                        <span class="stat-label">مشتری</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="10">0</span>
+                        <span class="stat-label">سال تجربه</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بخش تصویری (راست) - بدون آیکون‌های چرخشی -->
+            <div class="hero-visual">
+                <div class="floating-orb">
+                    <div class="orb-container">
+                        <div class="orb"></div>
+                        <div class="orb-image">
+                            <img src="./img/profile.png" alt="Profile Parsdiode">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =================================
+        Articles Section - Card Stack Grid
+    ================================= -->
+    <section class="articles-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2 class="section-title">آخرین مقالات</h2>
+                    <p class="section-description">
+                        جدیدترین مقالات و آموزش‌های منتشر شده در زمینه‌های مختلف مهندسی الکترونیک
+                    </p>
+                </div>
+                <a href="/magale/magale-index.html" class="view-all-btn">
+                    <span>مطالعه بیشتر</span>
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+
+            <!-- Smart Filters -->
+            <div class="smart-filters">
+                <button class="filter-chip active" data-filter="all">
+                    <span>همه</span>
+                </button>
+                <button class="filter-chip" data-filter="الکترونیک">
+                    <span>الکترونیک</span>
+                </button>
+                <button class="filter-chip" data-filter="برنامه‌نویسی">
+                    <span>برنامه‌نویسی</span>
+                </button>
+                <button class="filter-chip" data-filter="برق خورشیدی">
+                    <span>برق خورشیدی</span>
+                </button>
+            </div>
+
+            <!-- Articles Stack -->
+            <div class="articles-stack">
+                <!-- Article Card 1 -->
+                <article class="article-card" data-category="الکترونیک">
+                    <div class="article-media">
+                        <img src="https://www.csm.tech/storage/uploads/news/62c6ba5c839351657191004Thumb.jpg"
+                            alt="طراحی فیلتر پایین‌گذر" class="article-image">
+                        <span class="article-badge">الکترونیک</span>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">
+                            <a href="/magale/magale-section/metavers.html">متاورس: تکامل اینترنت یا رویایی
+                                دست‌نیافتنی؟</a>
+                        </h3>
+                        <p class="article-excerpt">
+                            متاورس شبکه‌ای از جهان‌های مجازی سه‌بعدی، پایدار و آنلاین است که از واقعیت مجازی (VR) و
+                            واقعیت افزوده (AR) بهره می‌برد. برخلاف ...
+                        </p>
+                        <div class="article-meta">
+                            <div class="meta-item">
+                                <i class="far fa-calendar"></i>
+                                <span>1404/09/22</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>8 دقیقه</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="far fa-eye"></i>
+                                <span>1.2K</span>
+                            </div>
+                        </div>
+                        <div class="article-tags">
+                            <span class="tag">متاورس</span>
+                            <span class="tag">بلاکچین</span>
+                            <span class="tag">WEB 3</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 2 -->
+                <!-- <article class="article-card" data-category="برنامه‌نویسی">
+                    <div class="article-media">
+                        <img src="https://vigiato.net/wp-content/uploads/2025/12/Call-of-Duty-Black-Ops-7-2-910x600.jpg"
+                            alt="آشنایی با React Hooks" class="article-image">
+                        <span class="article-badge">برنامه‌نویسی</span>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">
+                            <a href="#">آشنایی با React Hooks و کاربرد آن در توسعه وب مدرن</a>
+                        </h3>
+                        <p class="article-excerpt">
+                            آموزش کامل React Hooks و مزایای آن نسبت به کلاس‌های سنتی در توسعه وب مدرن
+                        </p>
+                        <div class="article-meta">
+                            <div class="meta-item">
+                                <i class="far fa-calendar"></i>
+                                <span>1403/04/28</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>12 دقیقه</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="far fa-eye"></i>
+                                <span>2.5K</span>
+                            </div>
+                        </div>
+                        <div class="article-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Hooks</span>
+                            <span class="tag">Frontend</span>
+                        </div>
+                    </div>
+                </article> -->
+
+                <!-- Article Card 3 -->
+                <!-- <article class="article-card" data-category="برق خورشیدی">
+                    <div class="article-media">
+                        <img src="https://vigiato.net/wp-content/uploads/2025/12/Call-of-Duty-Black-Ops-7-2-910x600.jpg"
+                            alt="بهینه‌سازی سیستم‌های فتوولتائیک" class="article-image">
+                        <span class="article-badge">برق خورشیدی</span>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">
+                            <a href="#">روش‌های بهینه‌سازی عملکرد سلول‌های خورشیدی</a>
+                        </h3>
+                        <p class="article-excerpt">
+                            روش‌های بهینه‌سازی عملکرد سلول‌های خورشیدی و افزایش بازدهی سیستم‌های فتوولتائیک
+                        </p>
+                        <div class="article-meta">
+                            <div class="meta-item">
+                                <i class="far fa-calendar"></i>
+                                <span>1403/04/12</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>15 دقیقه</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="far fa-eye"></i>
+                                <span>1.8K</span>
+                            </div>
+                        </div>
+                        <div class="article-tags">
+                            <span class="tag">سلول خورشیدی</span>
+                            <span class="tag">MPPT</span>
+                            <span class="tag">بهینه‌سازی</span>
+                        </div>
+                    </div>
+                </article> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================
+        Portfolio Section - Interactive Gallery
+    ================================= -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="section-container">
+
+            <!-- Header -->
+            <div class="section-header-center">
+                <h2 class="glowing-title">پروژه‌های منتخب</h2>
+                <p class="section-subtitle">ترکیبی از خلاقیت، کدنویسی و طراحی مدار</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th-large"></i> همه
+                </button>
+                <button class="filter-btn" data-filter="electronic">
+                    <i class="fas fa-microchip"></i> الکترونیک
+                </button>
+                <button class="filter-btn" data-filter="programming">
+                    <i class="fas fa-code"></i> برنامه‌نویسی
+                </button>
+                <button class="filter-btn" data-filter="solar">
+                    <i class="fas fa-solar-panel"></i> برق خورشیدی
+                </button>
+            </div>
+
+            <!-- Grid -->
+            <div class="portfolio-grid">
+
+                <!-- Project 01 -->
+                <article class="portfolio-card" data-category="electronic">
+                    <div class="card-image-wrapper">
+                        <img src="/portfolio/portfolio/NemooneIMG/1758720404849.jpg" alt="OpAmp" class="card-img">
+                        <div class="card-badges">
+                            <span class="badge">الکترونیک</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <span class="project-index">01</span>
+                        <h3 class="card-title">"طراحی UPS هوشمند</h3>
+                        <p class="card-desc">منبع تغذیه اضطراری برای مودم و پایانه‌های فروش با سوئیچینگ اتوماتیک</p>
+
+                        <div class="tech-stack">
+                            <span class="tech-tag">UPS</span>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="/portfolio/portfolio/PowerElectronics.html" class="btn-link">جزئیات <i
+                                    class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 02 -->
+                <!-- <article class="portfolio-card" data-category="programming">
+                    <div class="card-image-wrapper">
+                        <img src="https://vigiato.net/wp-content/uploads/2025/12/Call-of-Duty-Black-Ops-7-2-910x600.jpg"
+                            alt="Vue JS" class="card-img">
+                        <div class="card-badges">
+                            <span class="badge">فرانت‌اند</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <span class="project-index">02</span>
+                        <h3 class="card-title">Vue.js Composition API</h3>
+                        <p class="card-desc">توسعه رابط کاربری واکنش‌گرا با استفاده از معماری جدید Vue 3 و مدیریت حالت.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span class="tech-tag">Vue.js 3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Tailwind</span>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="#" class="btn-link">نمایش پروژه <i class="fas fa-arrow-left"></i></a>
+                            <a href="#" class="btn-icon" title="سورس کد"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </article> -->
+
+                <!-- Project 03 -->
+                <!-- <article class="portfolio-card" data-category="solar">
+                    <div class="card-image-wrapper">
+                        <img src="https://vigiato.net/wp-content/uploads/2025/12/Call-of-Duty-Black-Ops-7-2-910x600.jpg"
+                            alt="Solar" class="card-img">
+                        <div class="card-badges">
+                            <span class="badge">انرژی پاک</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <span class="project-index">03</span>
+                        <h3 class="card-title">سیستم‌های فتوولتائیک</h3>
+                        <p class="card-desc">محاسبات دقیق پنل‌ها و اینورتر برای سیستم‌های آفگرید (Off-Grid) خانگی.</p>
+
+                        <div class="tech-stack">
+                            <span class="tech-tag">PVsyst</span>
+                            <span class="tech-tag">AutoCAD</span>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="#" class="btn-link">جزئیات فنی <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </article> -->
+
+                <!-- Project 04 -->
+                <!-- <article class="portfolio-card" data-category="electronic">
+                    <div class="card-image-wrapper">
+                        <img src="https://vigiato.net/wp-content/uploads/2025/12/Call-of-Duty-Black-Ops-7-2-910x600.jpg"
+                            alt="IC Design" class="card-img">
+                        <div class="card-badges">
+                            <span class="badge">دیجیتال</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <span class="project-index">04</span>
+                        <h3 class="card-title">طراحی مدارهای مجتمع</h3>
+                        <p class="card-desc">شبیه‌سازی و لی‌اوت (Layout) مدارهای مجتمع در سطح ترانزیستور.</p>
+
+                        <div class="tech-stack">
+                            <span class="tech-tag">Cadence</span>
+                            <span class="tech-tag">Verilog</span>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="#" class="btn-link">مستندات <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </article> -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================
+        Footer - Holographic Interface
+    ================================= -->
+    <footer class="modern-footer">
+        <!-- افکت‌های نوری پس‌زمینه -->
+        <div class="footer-glow top-left"></div>
+        <div class="footer-glow bottom-right"></div>
+
+        <div class="footer-container">
+
+            <!-- ردیف اول: Call to Action بزرگ -->
+            <div class="bento-box cta-box">
+                <div class="cta-content">
+                    <h2 class="cta-heading">پروژه‌ای در ذهن دارید؟</h2>
+                    <p class="cta-text">بیایید با هم آن را بسازیم. از طراحی مدار تا توسعه وب.</p>
+                </div>
+                <div class="cta-action">
+                    <a href="mailto:parsdiode@gmail.com" class="shine-btn">
+                        <span>شروع همکاری</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                <!-- دکور پس‌زمینه -->
+                <div class="circuit-pattern"></div>
+            </div>
+
+            <!-- ردیف دوم: شبکه اصلی اطلاعات -->
+            <div class="footer-grid-layout">
+
+                <!-- ستون ۱: برند و بیوگرافی -->
+                <div class="bento-box brand-box">
+                    <div class="brand-header">
+                        <img src="/img/logo.jpg" alt="ParsDiode" class="brand-logo">
+                        <div class="brand-info">
+                            <h3>ParsDiode</h3>
+                            <span class="brand-badge">متخصص الکترونیک و برنامه نویسی</span>
+                        </div>
+                    </div>
+                    <p class="brand-bio">
+                        طراحی مرزهای تکنولوژی؛ جایی که پیچیدگی‌های مهندسی به تجربه‌ای چشم‌نواز و کارآمد تبدیل می‌شود.
+                    </p>
+                    <!-- نمایش آیکونیک تکنولوژی‌ها -->
+                    <div class="tech-strip">
+                        <!-- الکترونیک -->
+                        <i class="fas fa-microchip" title="Electronics"></i>
+
+                        <!-- آچار فرانسه (ابزار فنی) -->
+                        <i class="fas fa-wrench" title="Mechanics"></i>
+
+                        <!-- برنامه‌نویسی -->
+                        <i class="fas fa-laptop-code" title="Programming"></i>
+
+                        <!-- برق خورشیدی -->
+                        <i class="fas fa-solar-panel" title="Solar Power"></i>
+                    </div>
+
+                </div>
+
+                <!-- ستون ۲: لینک‌های دسترسی -->
+                <div class="bento-box links-box">
+                    <h4 class="box-title">بخش‌ها</h4>
+                    <ul class="footer-menu">
+                        <li><a href="/portfolio/portfolio-section/index-portfolio.html">نمونه کارها</a></li>
+                        <li><a href="/magale/magale-index.html">مقالات</a></li>
+                        <li><a href="/tools/abzar/abzar-index.html">ماشین حساب پنل خورشیدی</a></li>
+                        <li><a href="/about us/about-us-index.html">درباره من</a></li>
+                    </ul>
+                </div>
+
+                <!-- ستون ۳: شبکه‌های اجتماعی (کارت‌های مربعی) -->
+                <div class="bento-box social-box">
+                    <h4 class="box-title">ارتباط</h4>
+                    <div class="social-icons-grid">
+                        <a href="https://t.me/parsdiode" class="social-tile telegram" target="_blank">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="https://instagram.com/parsdiode" class="social-tile instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:parsdiode@gmail.com" class="social-tile email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:09013469353" class="social-tile phone">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نوار پایین فوتر: کپی‌رایت + سازنده -->
+            <div class="footer-bottom-bar">
+                <div class="copyright-text">
+                    تمامی حقوق مختص به وبسایت <strong>Parsdiode</strong> میباشد.
+                </div>
+
+                <div class="creator-wrapper">
+                    <a href="#" class="creator-link">قدرت گرفته از علی اشرفی</a>
+
+                    <!-- کارت هولوگرافیک (بدون تغییر ساختار داخلی) -->
+                    <div class="holo-card">
+                        <div class="holo-content">
+                            <div class="avatar-container">
+                                <!-- عکس به جای img با div و کلاس holo-avatar لود میشه -->
+                                <div class="holo-avatar" role="img" aria-label="Ali Ashrafi Profile"></div>
+                            </div>
+
+                            <div class="wave-container">
+                                <svg viewBox="0 0 1440 320" class="holo-wave-svg">
+                                    <path fill="none" stroke="var(--neon-glow)" stroke-width="4"
+                                        d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,165.3C672,160,768,96,864,90.7C960,85,1056,139,1152,154.7C1248,171,1344,149,1392,138.7L1440,128"
+                                        style="filter: drop-shadow(0 0 5px var(--neon-glow));"></path>
+                                </svg>
+                            </div>
+                            <div class="text-info">
+                                <span class="holo-role">Full-Stack Developer</span>
+                                <h3 class="holo-name">Ali Ashrafi</h3>
+                                <p class="holo-motto">BUILD THE FUTURE. CODE THE DREAM.</p>
+                            </div>
+                        </div>
+                        <div class="holo-pointer"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </footer>
+    <!-- دکمه بازگشت به بالا -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="برگشت به بالا">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <!-- =================================
+        JavaScript Files
+    ================================= -->
+    <script src="/JS/script.js"></script>
+</body>
+
+</html>

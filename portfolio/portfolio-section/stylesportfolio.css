@@ -1,0 +1,443 @@
+/* =========================================
+   1. GLOBAL VARIABLES & THEMES
+   ========================================= */
+   
+:root {
+    /* رنگ‌های اصلی (Hex) */
+    --primary-color: #00d2ff;
+    --secondary-color: #3a7bd5;
+    
+    /* نسخه RGB برای استفاده در شفافیت‌ها (ضروری) */
+    --primary-rgb: 0, 210, 255;      /* معادل #00d2ff */
+    --secondary-rgb: 58, 123, 213;   /* معادل #3a7bd5 */
+
+    /* تنظیمات متن و دکمه پیش‌فرض (تاریک) */
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --primary-btn-text: #ffffff;
+    --bg-body: #0f172a; /* رنگ پس‌زمینه پیش‌فرض تاریک */
+    --bg-card: #1e293b; 
+
+    /* تنظیمات شیشه مایع (Liquid Glass) - دارک */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --glass-blur: blur(20px);
+    --glass-border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="light"] {
+    /* تم روشن */
+    --bg-body: #f0f2f5;
+    --bg-card: #ffffff;
+    --text-main: #1a1a1a;
+    --text-muted: #555555;
+    --primary-btn-text: #ffffff;
+    
+    /* تنظیمات شیشه مایع (Liquid Glass) - لایت */
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    --glass-border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   2. SMART HERO SECTION (REVOLUTION)
+   ========================================= */
+.smart-hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 60px;
+    background: var(--bg-body);
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+/* افکت‌های نوری پس‌زمینه */
+.hero-bg-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: var(--primary-color);
+    filter: blur(150px);
+    opacity: 0.15;
+    border-radius: 50%;
+    z-index: 0;
+}
+.glow-1 { top: -100px; right: -100px; }
+.glow-2 { bottom: -100px; left: -100px; background: var(--secondary-color); }
+
+/* کانتینر اصلی */
+.smart-container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* --- ستون متنی --- */
+.hero-content { max-width: 600px; }
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(var(--primary-rgb), 0.1);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.status-dot {
+    width: 8px; height: 8px;
+    background: #00ff88;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff88;
+}
+.status-dot.pulse { animation: pulse-green 2s infinite; }
+
+@keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+.highlight-text {
+    color: var(--primary-color);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+/* دکمه‌ها */
+.hero-actions { display: flex; gap: 15px; margin-bottom: 3rem; }
+
+.btn-primary-glow {
+    background: var(--primary-color);
+    color: var(--primary-btn-text);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.4);
+}
+
+.btn-primary-glow:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(var(--primary-rgb), 0.6);
+}
+
+.btn-secondary-glass {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border-color);
+    color: var(--text-main);
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary-glass:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* آمار */
+.hero-mini-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+}
+
+.mini-stat strong {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+.mini-stat small { font-size: 0.8rem; color: var(--text-muted); }
+.separator { width: 1px; height: 40px; background: var(--glass-border-color); opacity: 0.5; }
+
+/* =========================================
+   3. HERO VISUAL REVOLUTION (Cyber Core)
+   ========================================= */
+.hero-visual-revolution {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+/* حلقه‌های مداری */
+.orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(var(--primary-rgb), 0.1);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+.ring-1 { width: 300px; height: 300px; border-color: rgba(var(--primary-rgb), 0.2); animation: spin 20s linear infinite; border-style: dashed;}
+.ring-2 { width: 420px; height: 420px; border-color: rgba(var(--secondary-rgb), 0.15); animation: spin-reverse 25s linear infinite; }
+.ring-3 { width: 540px; height: 540px; border: 1px dotted rgba(255,255,255,0.1); animation: spin 40s linear infinite; }
+
+/* هسته مرکزی */
+.cyber-core {
+    position: relative;
+    width: 260px;
+    height: 320px;
+    z-index: 2;
+    border-radius: 30px;
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.01));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 50px rgba(var(--primary-rgb), 0.2);
+    animation: float-core 6s ease-in-out infinite;
+}
+.core-img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+.cyber-core::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+    opacity: 0.6;
+    animation: scan 4s ease-in-out infinite;
+    z-index: 3;
+}
+
+/* نودهای تکنولوژی */
+.tech-node {
+    position: absolute;
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 18px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    z-index: 4;
+    transition: transform 0.3s ease;
+}
+.tech-node:hover { transform: scale(1.1) !important; border-color: var(--primary-color); z-index: 10; }
+
+.node-1 { top: 15%; right: 5%; animation: float-node 5s ease-in-out infinite 0s; }
+.node-2 { bottom: 20%; left: 0%; animation: float-node 7s ease-in-out infinite 1s; }
+.node-3 { top: 50%; right: -10%; animation: float-node 6s ease-in-out infinite 2s; }
+
+.node-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; color: #fff;
+}
+.node-1 .node-icon { background: linear-gradient(135deg, #FF512F, #DD2476); }
+.node-2 .node-icon { background: linear-gradient(135deg, #F09819, #EDDE5D); }
+.node-3 .node-icon { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+
+.node-content { display: flex; flex-direction: column; }
+.n-title { font-size: 0.85rem; font-weight: bold; color: var(--text-main); }
+.n-desc { font-size: 0.7rem; color: var(--text-muted); }
+
+/* انیمیشن‌های هیرو */
+@keyframes spin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+@keyframes spin-reverse { 100% { transform: translate(-50%, -50%) rotate(-360deg); } }
+@keyframes float-core { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+@keyframes float-node { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+@keyframes scan { 0% { top: 0%; opacity: 0; } 50% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+
+/* =========================================
+   4. PROJECTS GRID (LIQUID GLASS + IMAGE)
+   ========================================= */
+.projects-section { padding: 20px 0 80px; min-height: 600px; }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+
+/* فیلترها */
+.projects-filter-section { padding: 40px 0 20px; text-align: center; }
+.filter-controls { display: inline-block; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border-color); padding: 8px; border-radius: 50px; backdrop-filter: blur(10px); }
+.filter-tag { padding: 10px 24px; border-radius: 40px; cursor: pointer; color: var(--text-muted); transition: all 0.3s ease; }
+.filter-tag:hover { color: var(--text-main); background: rgba(255, 255, 255, 0.05); }
+.filter-tag.active { background: var(--primary-color); color: #fff; box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.4); }
+
+/* --- کارت پروژه (ترکیب شده و اصلاح شده) --- */
+.project-card {
+    /* استایل‌های پایه */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0; 
+    animation: fadeInUp 0.6s ease forwards;
+    
+    /* افکت شیشه مایع (Liquid Glass) */
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* تصویر و افکت Overlay */
+.card-image-wrapper {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .card-image-wrapper img { transform: scale(1.1); }
+
+.card-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s ease;
+}
+
+.project-card:hover .card-overlay { opacity: 1; }
+
+.btn-view {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    text-decoration: none;
+    font-weight: 600;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+.project-card:hover .btn-view { transform: translateY(0); }
+
+/* محتوای کارت */
+.card-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-badge {
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-main); /* رنگ هوشمند */
+}
+
+.card-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted); /* رنگ هوشمند */
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.card-tags {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto;
+}
+
+.card-tags span {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(var(--primary-rgb), 0.1);
+    color: var(--text-main);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
+}
+
+/* صفحه‌بندی */
+.projects-pagination { margin-top: 50px; display: flex; justify-content: center; gap: 10px; }
+.projects-pagination button {
+    width: 40px; height: 40px; border-radius: 12px;
+    border: 1px solid var(--glass-border-color);
+    background: var(--glass-bg);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.projects-pagination button:hover:not(:disabled) { border-color: var(--primary-color); color: var(--primary-color); }
+.projects-pagination button.active {
+    background: var(--primary-color); color: #fff; border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.3);
+}
+
+/* انیمیشن ورود */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* مدیا کوئری */
+@media (max-width: 992px) {
+    .smart-hero { padding-top: 100px; min-height: auto; }
+    .smart-container { display: flex; flex-direction: column-reverse; text-align: center; gap: 3rem; }
+    .hero-actions { justify-content: center; }
+    .hero-visual-revolution { height: 400px; transform: scale(0.9); }
+    .node-3 { right: 0; }
+}
+@media (max-width: 576px) {
+    .hero-visual-revolution { transform: scale(0.75); height: 350px; margin-top: -30px; }
+    .tech-node { padding: 8px 12px; }
+    .n-desc { display: none; }
+    .node-1 { right: -10px; } .node-2 { left: -10px; }
+}
+/* ایجاد فاصله مجازی در بالای بخش نمونه‌کارها هنگام اسکرول */
+.projects-filter-section {
+    scroll-margin-top: 100px; /* این عدد را بسته به ارتفاع هدر خود تنظیم کنید */
+}
