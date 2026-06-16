@@ -1,0 +1,168 @@
+:root {
+    --bg-deep: #0f172a; /* آبی نفتی خیلی تیره */
+    --glass-surface: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --ice-glow: rgba(199, 210, 254, 0.6); /* درخشش یخی */
+    --accent-liquid: #38bdf8; /* آبی روشن مایع */
+    --text-white: #f8fafc;
+    --font-main: 'Vazirmatn', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-deep);
+    font-family: var(--font-main);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+}
+
+/* --- پس‌زمینه و اتمسفر --- */
+.deep-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 0%, #1e293b 0%, #020617 80%);
+    z-index: -2;
+}
+
+/* مایعات متحرک پشت شیشه */
+.liquid-orb, .liquid-orb-2 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.6;
+    z-index: -1;
+    animation: flow 15s infinite ease-in-out alternate;
+}
+
+.liquid-orb {
+    width: 500px; height: 500px;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    top: -10%; left: 20%;
+}
+
+.liquid-orb-2 {
+    width: 400px; height: 400px;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    bottom: -10%; right: 20%;
+    animation-delay: -5s;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes flow {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-30px, 40px) scale(1.1); }
+}
+
+/* --- کارت شیشه‌ای یخی (Prism) --- */
+.prism-container {
+    perspective: 1000px;
+    z-index: 10;
+}
+
+.frosted-glass-card {
+    position: relative;
+    width: 100%; max-width: 480px;
+    padding: 60px 40px;
+    border-radius: 30px;
+    
+    /* تکنیک شیشه چند لایه */
+    background: var(--glass-surface);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    
+    /* بوردر یخی و ضخیم */
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+        0 20px 60px rgba(0,0,0,0.4), /* سایه اصلی */
+        inset 0 0 0 1px rgba(255,255,255,0.1), /* حاشیه داخلی ظریف */
+        inset 0 0 40px rgba(255,255,255,0.05); /* نور درونی */
+    
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.2s ease-out;
+}
+
+/* لایه نویز برای تکسچر یخ */
+.noise-overlay {
+    position: absolute; inset: 0;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+/* افکت حرکت نور روی شیشه (Shimmer) */
+.shimmer {
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.1) 45%, transparent 60%);
+    transform: translateX(-150%);
+    animation: shimmerMove 6s infinite ease-in-out;
+    pointer-events: none;
+}
+@keyframes shimmerMove {
+    0%, 80% { transform: translateX(-150%); }
+    100% { transform: translateX(150%); }
+}
+
+/* --- محتوا --- */
+.icon-wrapper {
+    margin-bottom: 25px;
+    color: var(--ice-glow);
+    filter: drop-shadow(0 0 15px var(--accent-liquid));
+    animation: pulseIcon 4s infinite ease-in-out;
+}
+.liquid-icon { width: 64px; height: 64px; }
+
+@keyframes pulseIcon {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+.title {
+    font-size: 2.2rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 10px;
+    background: linear-gradient(to bottom, #fff, #cbd5e1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+    font-size: 1rem; color: #94a3b8; line-height: 1.8; margin-bottom: 40px; font-weight: 300;
+}
+
+/* --- لودر یخی (Ice Loader) --- */
+.ice-loader {
+    position: relative; width: 100%; height: 4px;
+    background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden;
+    margin-bottom: 15px;
+}
+.ice-bar {
+    position: absolute; top: 0; left: 0; height: 100%; width: 30%;
+    background: linear-gradient(90deg, transparent, var(--ice-glow), transparent);
+    border-radius: 10px;
+    animation: loading 2s infinite ease-in-out;
+    box-shadow: 0 0 15px var(--ice-glow);
+}
+@keyframes loading {
+    0% { left: -30%; } 100% { left: 100%; }
+}
+
+.status-text {
+    font-size: 0.8rem; color: #64748b; font-weight: 300; letter-spacing: 1px;
+}
+
+/* --- دکمه شیشه‌ای --- */
+.glass-footer { margin-top: 40px; }
+.glass-btn {
+    display: inline-block; padding: 12px 32px;
+    border-radius: 50px; text-decoration: none; color: #fff; font-size: 0.9rem;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+.glass-btn:hover {
+    background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3);
+    box-shadow: 0 0 20px rgba(255,255,255,0.1); transform: translateY(-2px);
+}
