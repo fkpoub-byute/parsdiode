@@ -58,7 +58,7 @@ body {
     font-family: IranSansx;
     src: url(IRANSansXNoEn-Regular.ttf);
 }
-
+ * 
 :root {
     /* فونت */
     --font-main: IranSansx;
@@ -3069,6 +3069,14 @@ html {
     scrollbar-color: var(--accent-color) var(--bg-color);
 }
 
-* {
+* , h1 , h2 , h3 , p , div  {
     font-family: IranSansx;
 }
+
+
+
+
+
+
+
+
